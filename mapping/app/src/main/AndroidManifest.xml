@@ -11,6 +11,11 @@
         android:theme="@style/Theme.Mapping">
         <activity
             android:name=".MainActivity"
+            android:exported="false"
+            />
+        <activity
+
+            android:name=".loding"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
