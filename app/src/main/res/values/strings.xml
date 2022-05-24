@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Mapping</string>
+
     <string name="logo">LOGO</string>
+
+    <string name="ID_text">ID</string>
+
+    <string name="Feed_text">Feed</string>
+
+    <string name="Map_text">Map</string>
+
+    <string name="Title_text">Title</string>
+
+    <string name="Addbar_text">+</string>
 </resources>
