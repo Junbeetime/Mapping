@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7397A7"
+    android:orientation="vertical"
+    android:theme="@style/Theme.Team_Project"
+    tools:context="com.gachon.mapping.Diary">
+
+    <ImageButton
+        android:id="@+id/LoginButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/login" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@+id/LoginButton"
+        android:backgroundTint="#EFF1F1"
+        android:text="My Diary"
+        android:textColor="@color/black"
+        android:textSize="14dp" />
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/white"
+        android:layout_marginLeft="30dp"
+        android:maxLines="10"
+        android:lines="10"
+        android:text="Input your diary"
+        android:gravity="center"
+        />
+
+</RelativeLayout>
