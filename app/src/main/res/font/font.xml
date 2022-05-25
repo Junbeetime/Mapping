@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font
+        android:font="@font/sanghu_dajungdagam"
+        app:font="@font/sanghu_dajungdagam"/>
+    <font
+        android:font="@font/sangju_gotgam"
+        app:font="@font/sangju_gotgam"/>
+    <font
+        android:font="@font/sangju_haerye"
+        app:font="@font/sangju_haerye"/>
+    <font
+        android:font="@font/sangju_gyeongcheon_island"
+        app:font="@font/sangju_gyeongcheon_island"/>
+</font-family>
