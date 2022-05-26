@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <include layout="@layout/layout_back"/>
-        <include layout="@layout/layout_map"/>
+        <include layout="@layout/layout_menu"/>
 
     </LinearLayout>
 
@@ -31,7 +31,7 @@
             android:background="#AEFAF1E2"
            android:layout_marginRight="20dp"
             android:fontFamily="@font/sanghu_dajungdagam"
-            android:text=" 다이어리"
+            android:text=" 일기장"
             android:textColor="#5D5D5D"
             android:textSize="50dp"
             android:textStyle="bold" />
@@ -52,7 +52,7 @@
             android:layout_weight="5"
             android:background="@drawable/solid_button"
             android:fontFamily="@font/sangju_haerye"
-            android:hint="제목을 입력하세요"
+            android:hint="  제목을 써주세요"
             android:ems="10"
             android:textColor="@color/black"
             android:textSize="15dp"
@@ -67,7 +67,7 @@
             android:layout_weight="3"
             android:background="@drawable/solid_button"
             android:fontFamily="@font/sangju_haerye"
-            android:text="다이어리추가"
+            android:text="일기쓰기"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginRight="5dp"/>
@@ -79,7 +79,7 @@
             android:layout_weight="3"
             android:background="@drawable/solid_button"
             android:fontFamily="@font/sangju_haerye"
-            android:text="다이어리삭제"
+            android:text="지우기"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginRight="10dp"/>
