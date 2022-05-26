@@ -27,12 +27,14 @@
         <activity
             android:name=".Diary"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".DiaryTitle"-->
-<!--            android:exported="false" />-->
-<!--       -->
         <activity
             android:name=".StartActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBPEPe286Kk1x_77p476_efFLuZ3lKo6VU"/>
+        <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

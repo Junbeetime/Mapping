@@ -9,6 +9,8 @@
     android:theme="@style/Theme.AppCompat"
     tools:context="com.gachon.mapping.Diary">
 
+    <include layout="@layout/layout_back" />
+
     <ImageButton
         android:id="@+id/LoginButton"
         android:layout_width="50dp"
@@ -20,15 +22,6 @@
         android:scaleType="centerCrop"
         android:src="@drawable/login" />
 
-    <ImageButton
-        android:id="@+id/map_back_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:padding="0sp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/back" />
 
     <Button
         android:id="@+id/button1"
