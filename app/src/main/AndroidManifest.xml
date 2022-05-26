@@ -19,7 +19,7 @@
             android:name=".testActivity"
             android:exported="false" />
         <activity
-            android:name=".loding"
+            android:name=".DiaryTitle"
             android:exported="false" />
         <activity
             android:name=".idActivity"
@@ -32,7 +32,7 @@
 <!--            android:exported="false" />-->
 <!--       -->
         <activity
-            android:name=".DiaryTitle"
+            android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,5 +41,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

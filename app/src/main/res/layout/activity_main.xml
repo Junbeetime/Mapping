@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7397A7"
+    android:background="#FAF1E2"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -39,7 +39,8 @@
         android:layout_height="1300px"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="100dp"
-        tools:context=".MapsActivity" />
+        tools:context=".MapsActivity"
+        tools:ignore="MissingClass" />
 
     <Button
         android:id="@+id/Marking"
