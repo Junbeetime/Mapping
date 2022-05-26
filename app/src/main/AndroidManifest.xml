@@ -13,10 +13,10 @@
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".StartActivity"
             android:exported="false" />
         <activity
-            android:name=".testActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".DiaryTitle"
@@ -25,10 +25,10 @@
             android:name=".idActivity"
             android:exported="false" />
         <activity
-            android:name=".Diary"
+            android:name=".testActivity"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
+            android:name=".Diary"
             android:exported="false" />
 
         <meta-data

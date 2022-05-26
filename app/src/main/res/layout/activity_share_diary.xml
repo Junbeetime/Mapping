@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AEFAF1E2"
+    android:background="#FAF1E2"
     android:orientation="vertical"
     android:theme="@style/Theme.AppCompat"
     tools:context="com.gachon.mapping.Diary">
 
-    <ImageButton
+
+    <Button
         android:id="@+id/LoginButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -18,7 +19,7 @@
         android:layout_marginRight="10dp"
         android:padding="0sp"
         android:scaleType="centerCrop"
-        android:src="@drawable/login" />
+        android:src="@drawable/face" />
 
     <ImageButton
         android:id="@+id/map_back_button"
@@ -28,7 +29,7 @@
         android:layout_marginTop="10dp"
         android:padding="0sp"
         android:scaleType="centerCrop"
-        android:src="@drawable/back" />
+        android:src="@drawable/arrow" />
 
     <Button
         android:id="@+id/button1"
@@ -37,22 +38,31 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:layout_toLeftOf="@+id/LoginButton"
-        android:backgroundTint="#EFF1F1"
-        android:fontFamily="@font/sangju_gotgam"
-        android:text="다이어리"
+        android:backgroundTint="#FFFFF3"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:text="일기장"
         android:textColor="@color/black"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+        android:textStyle="bold" />
 
 
-    <EditText
-        android:layout_width="350dp"
-        android:layout_height="400dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="100dp"
+    <Button
+        android:id="@+id/share_feed1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/solid_diary_border"
-        android:gravity="center"
-        android:lines="10"
-        android:maxLines="10"
-        android:text="Input your diary" />
+        android:drawableLeft="@drawable/face"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:gravity="center_vertical"
+        android:text="이름:\n제목:\n위치:"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
 
 </RelativeLayout>
