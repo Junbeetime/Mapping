@@ -12,4 +12,8 @@
     <string name="Title_text">Title</string>
 
     <string name="Addbar_text">+</string>
+
+    <string name="Subtractbar_text">⁃</string>
+
+    <string name="editText">제목을 입력하세요</string>
 </resources>

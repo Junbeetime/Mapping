@@ -13,7 +13,7 @@ public class idActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_id_test);
+        setContentView(R.layout.activity_id);
 
         Button button = findViewById(R.id.buttonId);
         button.setOnClickListener(new View.OnClickListener(){

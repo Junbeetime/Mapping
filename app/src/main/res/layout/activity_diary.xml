@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
+    android:background="#AEFAF1E2"
     android:orientation="vertical"
     android:theme="@style/Theme.AppCompat"
     tools:context="com.gachon.mapping.Diary">
@@ -43,12 +43,13 @@
         android:textColor="@color/black"
         android:textSize="14dp" />
 
+
     <EditText
         android:layout_width="350dp"
         android:layout_height="400dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="100dp"
-        android:background="@color/white"
+        android:background="@drawable/solid_diary_border"
         android:gravity="center"
         android:lines="10"
         android:maxLines="10"
