@@ -8,28 +8,34 @@
     android:orientation="vertical"
     tools:context=".Diary">
 
-    <ImageButton
-        android:id="@+id/LoginButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#BF3030"
-        android:padding="0sp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/login" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/layout_back"/>
+        <include layout="@layout/layout_menu" />
+    </LinearLayout>
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_marginRight="20dp"
-        android:layout_toLeftOf="@+id/LoginButton"
-        android:backgroundTint="#EFF1F1"
-        android:text="My Diary"
-        android:textColor="@color/black"
-        android:textSize="15dp" />
+
+
+
+    <TextView
+        android:id="@+id/btn_title"
+        android:layout_width="150dp"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:text="기억하고 싶은 날"
+        android:textColor="#5D5D5D"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="87dp" />
 
     <fragment
         android:id="@+id/map"
@@ -39,27 +45,32 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="100dp"
         tools:context=".MapsActivity"
-        tools:ignore="MissingClass" />
+        tools:ignore="MissingClass"
+        />
 
     <Button
-        android:id="@+id/Marking"
+        android:id="@+id/map_marking_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="600dp"
         android:layout_marginRight="30dp"
         android:backgroundTint="#EFF1F1"
-        android:text="Marking"
+        android:text="표시하기"
+        android:textStyle="bold"
+        android:fontFamily="@font/sangju_haerye"
         android:textColor="@color/black" />
 
     <Button
-        android:id="@+id/Diary"
+        android:id="@+id/diary_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="310dp"
         android:layout_marginTop="600dp"
         android:backgroundTint="#EFF1F1"
-        android:text="Diary"
+        android:text="일기장"
+        android:fontFamily="@font/sangju_haerye"
+        android:textStyle="bold"
         android:textColor="@color/black" />
 
 </RelativeLayout>

@@ -4,55 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AEFAF1E2"
+    android:background="#FAF1E2"
     android:orientation="vertical"
     android:theme="@style/Theme.AppCompat"
     tools:context="com.gachon.mapping.Diary">
 
-    <ImageButton
-        android:id="@+id/LoginButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:padding="0sp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/login" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/layout_back"/>
+        <include layout="@layout/layout_menu"/>
 
-    <ImageButton
-        android:id="@+id/map_back_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:padding="0sp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/back" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_toLeftOf="@+id/LoginButton"
-        android:backgroundTint="#EFF1F1"
-        android:fontFamily="@font/sangju_gotgam"
-        android:text="다이어리"
-        android:textColor="@color/black"
-        android:textSize="14dp" />
 
+
+
+    <TextView
+        android:id="@+id/btn_title"
+        android:layout_width="150dp"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:text="일기 쓰는중"
+        android:textColor="#5D5D5D"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="87dp" />
 
     <EditText
-        android:layout_width="350dp"
-        android:layout_height="400dp"
+        android:id="@+id/diary_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="100dp"
-        android:background="@drawable/solid_diary_border"
         android:gravity="center"
         android:lines="10"
         android:maxLines="10"
-        android:text="Input your diary" />
+        android:text="청주 여행을 다녀와서.."
+        android:textColor="#5D5D5D"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/diary_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="374dp"
+        android:layout_below="@id/diary_subject"
+        android:layout_marginTop="-62dp"
+        android:paddingStart="30dp"
+        android:paddingTop="0dp"
+        android:paddingEnd="30dp"
+        android:paddingBottom="50dp"
+        android:src="@drawable/travel_image" />
+
+    <EditText
+        android:id="@+id/diary_text"
+        android:layout_width="376dp"
+        android:layout_height="373dp"
+        android:layout_below="@id/diary_imageview"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="-113dp"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:gravity="center"
+        android:lines="10"
+        android:maxLines="10"
+        android:text="안녕하세요 고길동입니다.m\n\n\n\n\n\n\n\n\n\n\n\4n\n\n\"
+        android:textColor="#5D5D5D" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/marking_image"
+        android:layout_above="@id/diary_imageview"/>
 
 </RelativeLayout>
