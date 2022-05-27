@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FAF1E2"
     android:orientation="vertical"
-    android:theme="@style/Theme.AppCompat"
     tools:context="com.gachon.mapping.Diary">
 
     <LinearLayout

@@ -54,11 +54,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="600dp"
         android:layout_marginRight="30dp"
-        android:backgroundTint="#EFF1F1"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sanghu_dajungdagam"
         android:text="표시하기"
-        android:textStyle="bold"
-        android:fontFamily="@font/sangju_haerye"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/diary_button"
@@ -66,10 +66,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="310dp"
         android:layout_marginTop="600dp"
-        android:backgroundTint="#EFF1F1"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sanghu_dajungdagam"
         android:text="일기장"
-        android:fontFamily="@font/sangju_haerye"
-        android:textStyle="bold"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
 </RelativeLayout>

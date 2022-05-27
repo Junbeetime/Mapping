@@ -31,7 +31,7 @@
             android:background="#AEFAF1E2"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/sanghu_dajungdagam"
-            android:text=" 일기장"
+            android:text="공유 일기장"
             android:textColor="#5D5D5D"
             android:textSize="50dp"
             android:textStyle="bold" />
@@ -39,51 +39,38 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/et_item"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="5"
             android:background="@drawable/solid_button"
+            android:ems="10"
             android:fontFamily="@font/sangju_haerye"
             android:hint="  제목을 써주세요"
-            android:ems="10"
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_add"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="3"
             android:background="@drawable/solid_button"
             android:fontFamily="@font/sangju_haerye"
-            android:text="일기쓰기"
+            android:text="검색하기"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginRight="5dp"/>
-
-        <Button
-            android:id="@+id/btn_delete"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="3"
-            android:background="@drawable/solid_button"
-            android:fontFamily="@font/sangju_haerye"
-            android:text="지우기"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginRight="10dp"/>
-
+            android:textStyle="bold" />
 
     </LinearLayout>
     <ListView
