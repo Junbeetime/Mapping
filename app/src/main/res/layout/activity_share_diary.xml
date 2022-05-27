@@ -86,8 +86,6 @@
 
 
     </LinearLayout>
-
-
     <ListView
         android:id="@+id/lv_array"
         android:layout_width="match_parent"

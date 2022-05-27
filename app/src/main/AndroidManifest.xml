@@ -19,7 +19,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".DiaryTitle"
             android:exported="false" />
         <activity
             android:name=".idActivity"
@@ -28,7 +28,7 @@
             android:name=".testActivity"
             android:exported="false" />
         <activity
-            android:name=".DiaryTitle"
+            android:name=".MainActivity"
             android:exported="false" />
 
         <meta-data
