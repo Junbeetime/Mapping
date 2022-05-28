@@ -8,6 +8,19 @@
     android:background="#FAF1E2">
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="37dp"
+        app:srcCompat="@drawable/signpeople" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -219,50 +232,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="83dp"
-        android:layout_marginBottom="274dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginBottom="361dp"
         android:fontFamily="@font/sanghu_dajungdagam"
         android:text="모두 동의합니다"
         android:textSize="15sp" />
-
-    <CheckBox
-        android:id="@+id/sign_agree1_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginBottom="240dp"
-        android:fontFamily="@font/sangju_haerye"
-        android:text="이용약관 동의"
-        android:textSize="10sp" />
-
-    <CheckBox
-        android:id="@+id/sign_agree2_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginBottom="175dp"
-        android:fontFamily="@font/sangju_haerye"
-        android:text="개인정보 취급방침 동의"
-        android:textSize="10sp" />
-
-    <CheckBox
-        android:id="@+id/sign_agree3_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginBottom="208dp"
-        android:fontFamily="@font/sangju_haerye"
-        android:text="마케팅 정보 수신 동의"
-        android:textSize="10sp" />
-
 
     <Button
         android:id="@+id/sign_agree1_button"
@@ -271,12 +245,25 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="285dp"
-        android:layout_marginBottom="243dp"
+        android:layout_marginStart="292dp"
+        android:layout_marginBottom="331dp"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sangju_gotgam"
         android:text="이용약관보기"
         android:textSize="8sp" />
+
+    <CheckBox
+        android:id="@+id/sign_agree3_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginBottom="296dp"
+        android:fontFamily="@font/sangju_haerye"
+        android:text="마케팅 정보 수신 동의"
+        android:textSize="10sp" />
 
     <Button
         android:id="@+id/sign_agree2_button"
@@ -285,8 +272,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="285dp"
-        android:layout_marginBottom="208dp"
+        android:layout_marginStart="292dp"
+        android:layout_marginBottom="295dp"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sangju_gotgam"
         android:text="마케팅약관보기"
@@ -299,12 +286,38 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="286dp"
-        android:layout_marginBottom="175dp"
+        android:layout_marginStart="293dp"
+        android:layout_marginBottom="262dp"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sangju_gotgam"
         android:text="약관보기"
         android:textSize="8sp" />
+
+    <CheckBox
+        android:id="@+id/sign_agree2_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginBottom="262dp"
+        android:fontFamily="@font/sangju_haerye"
+        android:text="개인정보 취급방침 동의"
+        android:textSize="10sp" />
+
+    <CheckBox
+        android:id="@+id/sign_agree1_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginBottom="328dp"
+        android:fontFamily="@font/sangju_haerye"
+        android:text="이용약관 동의"
+        android:textSize="10sp" />
+
 
     <Button
         android:id="@+id/sign_next_button"
