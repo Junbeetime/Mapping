@@ -38,17 +38,17 @@
 
     <EditText
         android:id="@+id/diary_subject"
-        android:layout_width="wrap_content"
-        android:layout_height="54dp"
+        android:layout_width="138dp"
+        android:layout_height="51dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="100dp"
+        android:fontFamily="@font/sanghu_dajungdagam"
         android:gravity="center"
+        android:hint="제목을 써주세요"
         android:lines="10"
         android:maxLines="10"
-        android:text="제목을 써주세요"
         android:textColor="#5D5D5D"
-        android:fontFamily="@font/sanghu_dajungdagam"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/diary_imageview"
@@ -64,16 +64,21 @@
 
     <EditText
         android:id="@+id/diary_text"
-        android:layout_width="376dp"
-        android:layout_height="373dp"
+        android:layout_width="380dp"
+        android:layout_height="169dp"
         android:layout_below="@id/diary_imageview"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="14dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="-113dp"
+        android:layout_marginTop="-112dp"
+        android:layout_marginBottom="207dp"
         android:fontFamily="@font/sanghu_dajungdagam"
         android:gravity="center"
+        android:hint="일기 내용을 써주세요"
         android:lines="10"
         android:maxLines="10"
-        android:text="일기 내용을 써주세요"
         android:textColor="#5D5D5D" />
 
     <ImageButton

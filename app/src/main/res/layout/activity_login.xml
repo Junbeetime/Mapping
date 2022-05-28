@@ -1,204 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FAF1E2">
 
+
     <TextView
-        android:id="@+id/text_login_title"
-        android:layout_width="228dp"
-        android:layout_height="49dp"
+        android:id="@+id/login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="135dp"
         android:fontFamily="@font/sanghu_dajungdagam"
-        android:text="함께 쓰는 일기"
+        android:text="공유하는 일기"
         android:textColor="#5D5D5D"
         android:textSize="50dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18" />
+        tools:layout_editor_absoluteY="87dp" />
 
     <TextView
-        android:id="@+id/loginText"
-        android:layout_width="wrap_content"
+        android:id="@+id/login_subtitle"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="285dp"
         android:fontFamily="@font/sangju_haerye"
-        android:text="with mapping"
-        android:textColor="#424242"
+        android:text="with 잇맵"
+        android:textColor="#5D5D5D"
+        android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.322" />
+        tools:layout_editor_absoluteY="87dp" />
 
     <EditText
-        android:id="@+id/editTextTextId"
+        android:id="@+id/login_textid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="307dp"
         android:ems="10"
+        android:fontFamily="@font/sanghu_dajungdagam"
         android:hint="아이디를 입력해주세요"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:fontFamily="@font/sanghu_dajungdagam"
+        android:maxLength="20"
+        android:singleLine="true"
+        android:textColor="#5D5D5D"
+        android:textSize="15dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginText" />
+        tools:layout_editor_absoluteY="87dp" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/login_text_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="345dp"
         android:ems="10"
-        android:hint="비밀번호를 입력해주세요"
         android:fontFamily="@font/sanghu_dajungdagam"
-        android:inputType="textPassword"
-        android:maxLength="15"
-        android:minHeight="48dp"
+        android:hint="비밀번호를 입력해주세요"
+        android:maxLength="20"
+        android:singleLine="true"
+        android:textColor="#5D5D5D"
+        android:textSize="15dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextId" />
+        tools:layout_editor_absoluteY="87dp" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/login_idsave_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="130dp"
+        android:layout_marginBottom="317dp"
+        android:fontFamily="@font/sangju_haerye"
         android:text="ID 저장"
-        android:textSize="10sp"
-        android:fontFamily="@font/sangju_haerye"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        android:textSize="10sp" />
+
 
     <CheckBox
-        android:id="@+id/checkBox6"
+        android:id="@+id/login_autologin_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:text="자동 로그인"
-        android:textSize="10sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="201dp"
+        android:layout_marginBottom="317dp"
         android:fontFamily="@font/sangju_haerye"
-        app:layout_constraintStart_toEndOf="@+id/checkBox5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        android:text="자동로그인"
+        android:textSize="10sp" />
+
 
     <Button
-        android:id="@+id/loginButton"
-        android:layout_width="210dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="@drawable/btn_white"
-        android:text="로그인"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        android:id="@+id/login_login_Button"
+        android:layout_width="194dp"
+        android:layout_height="38dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="107dp"
+        android:layout_marginBottom="272dp"
+        android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sangju_gotgam"
-        />
+        android:text="로그인" />
 
     <Button
-        android:id="@+id/signupButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="220dp"
+        android:id="@+id/login_signup_Button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="106dp"
+        android:layout_marginBottom="234dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
         android:text="회원가입"
-        android:textColor="#5E5E5E"
-        android:backgroundTint="@drawable/btn_white"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton"
-        android:fontFamily="@font/sangju_gotgam"/>
 
+        android:textSize="10sp" />
 
     <Button
-        android:id="@+id/findButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:backgroundTint="@drawable/btn_white"
+        android:id="@+id/login_find_Button"
+        android:layout_width="108dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="193dp"
+        android:layout_marginBottom="234dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
         android:text="아이디/비밀번호 찾기"
-        android:textColor="#5E5E5E"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/signupButton"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton"
-        android:fontFamily="@font/sangju_gotgam"/>
 
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="160dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent">
+        android:textSize="10sp" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="313dp"
+        android:layout_height="525dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginEnd="-14dp"
+        android:layout_marginBottom="-166dp"
+        app:srcCompat="@drawable/loginbackgorund" />
 
-        <ImageButton
-            android:backgroundTint="@drawable/btn_white"
-            android:id="@+id/naverButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/naver" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="257dp"
+        android:layout_height="129dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="2dp"
+        app:srcCompat="@drawable/sun" />
 
 
-        <ImageButton
-            android:backgroundTint="@drawable/btn_white"
-            android:id="@+id/kakaoButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerInside"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/findButton"
-            app:srcCompat="@drawable/kakao" />
-
-        <ImageButton
-            android:backgroundTint="@drawable/btn_white"
-            android:id="@+id/googleButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerInside"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/signupButton"
-            app:srcCompat="@drawable/google" />
-
-
-    </LinearLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="101dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="310dp" />
-
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
