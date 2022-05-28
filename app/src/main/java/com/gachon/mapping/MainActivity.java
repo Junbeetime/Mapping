@@ -55,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
         //객체 초기화
         editText = findViewById(R.id.editText);
-        btnLocation = findViewById(R.id.confirm_myLocation);
-        btnKor2Loc = findViewById(R.id.Confirm);
         btnMarker = findViewById(R.id.map_marking_button);
 
         //지도 프래그먼트 설정

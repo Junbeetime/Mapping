@@ -35,14 +35,14 @@
         tools:layout_editor_absoluteY="87dp" />
 
     <Button
-        android:id="@+id/confirm_myLocation"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="100dp"
         android:text="위치 확인"
-        android:textSize="14sp"/>
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/editText"
@@ -54,19 +54,21 @@
         android:hint="한글 주소 입력"
         android:inputType="textPersonName" />
 
+
     <Button
-        android:id="@+id/Confirm"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="확인"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="300dp"
         android:layout_marginTop="100dp"
-        android:layout_marginLeft="300dp"/>
-
+        android:layout_marginEnd="12dp"
+        android:text="확인" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/confirm_myLocation">
+        android:layout_below="@id/button1">
 
         <fragment
             android:id="@+id/map"
@@ -101,5 +103,6 @@
         android:text="일기장"
         android:textColor="@color/black"
         android:textStyle="bold" />
+
 
 </RelativeLayout>
