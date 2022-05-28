@@ -5,11 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckedTextView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
 
     private View.OnCreateContextMenuListener menuClickListener;
 
-    private int currentPostion = 0;
+    private int currentPosition = 0;
 
     public ClickApplyAdapter(Activity activity, List<String> itemNameList, View.OnClickListener clickListener, View.OnCreateContextMenuListener menuClickListener)
     {
@@ -31,19 +32,19 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
 
         this.itemNameList = itemNameList;
 
-        this. clickListener = clickListener;
+        this.clickListener = clickListener;
 
         this.menuClickListener = menuClickListener;
     }
 
     public class ClickApplyHolder extends RecyclerView.ViewHolder
     {
-        private CheckedTextView ck_click_title;
+        private TextView ck_click_title;
 
         private Button btn_click_item;
 
-
-        public ClickApplyHolder(@NonNull View itemView) {
+        public ClickApplyHolder(@NonNull View itemView)
+        {
             super(itemView);
 
             ck_click_title = itemView.findViewById(R.id.ck_click_title);
@@ -54,7 +55,7 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
 
     @NonNull
     @Override
-    public ClickApplyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    public ClickApplyAdapter.ClickApplyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         LayoutInflater layoutInflater = LayoutInflater.from(activity);
 
@@ -64,7 +65,7 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ClickApplyHolder holder, int position)
+    public void onBindViewHolder(@NonNull ClickApplyAdapter.ClickApplyHolder holder, int position)
     {
         String itemName = itemNameList.get(position);
 
@@ -78,18 +79,18 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return itemNameList.size();
     }
 
-    public int getCurrentPostion() {
-        return currentPostion;
+    public int getCurrentPosition()
+    {
+        return currentPosition;
     }
 
-
-    public void setCurrentPostion(int currentPostion) {
-        this.currentPostion = currentPostion;
+    public void setCurrentPosition(int currentPosition)
+    {
+        this.currentPosition = currentPosition;
     }
-
-
 }

@@ -2,6 +2,7 @@ package com.gachon.mapping;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +26,11 @@ public class Diary extends AppCompatActivity implements View.OnClickListener {
 
         InitalizeView();
 
-
+        EditText diary_subject;
+        diary_subject = findViewById(R.id.diary_subject);
+        Intent intent = getIntent();
+        String text = intent.getStringExtra(title);
+        diary_subject.setText(text);
 
     }
 
