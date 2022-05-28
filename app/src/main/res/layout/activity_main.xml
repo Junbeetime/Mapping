@@ -34,25 +34,56 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="87dp" />
 
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="1000px"
-        android:layout_height="1300px"
-        android:layout_marginLeft="15dp"
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="100dp"
-        tools:context=".MapsActivity"
-        tools:ignore="MissingClass" />
+        android:layout_marginRight="100dp"
+        android:text="위치 확인"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="한글 주소 입력"
+        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/main_map_marking_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="85dp"
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="확인"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="300dp"/>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/button1">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="500dp"
+            android:layout_height="400dp"
+            tools:context=".MapsActivity"
+            tools:ignore="MissingClass" />
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/map_marking_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginRight="30dp"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sanghu_dajungdagam"
         android:text="표시하기"
@@ -60,32 +91,15 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/main_diary_share_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="320dp"
-        android:layout_marginBottom="85dp"
-        android:background="@drawable/solid_diary_button"
-        android:fontFamily="@font/sanghu_dajungdagam"
-        android:text="공유 일기장"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/main_diary_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="175dp"
-        android:layout_marginBottom="85dp"
+        android:id="@+id/diary_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="600dp"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sanghu_dajungdagam"
         android:text="일기장"
         android:textColor="@color/black"
         android:textStyle="bold" />
+
 </RelativeLayout>

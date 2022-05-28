@@ -1,85 +1,238 @@
 package com.gachon.mapping;
-import android.content.Intent;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+import java.util.List;
 
-    private GoogleMap mMap;
-    Button diary_share_button;
-    Button diary_button;
-    Button marking_button;
+public class MainActivity extends AppCompatActivity {
+    //로그캣 사용 설정
+    private static final String TAG = "MainActivity";
+
+    //객체 선언
+    SupportMapFragment mapFragment;
+    GoogleMap map;
+    Button btnLocation, btnKor2Loc;
+    EditText editText;
+
+    MarkerOptions myMarker;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        //권한 설정
+        checkDangerousPermissions();
 
-        InitalizeView();
-        diary_share_listener();
-        diary_listener();
+        //객체 초기화
+        editText = findViewById(R.id.editText);
+        btnLocation = findViewById(R.id.button1);
+        btnKor2Loc = findViewById(R.id.button2);
 
-    }
+        //지도 프래그먼트 설정
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                Log.d(TAG, "onMapReady: ");
+                map = googleMap;
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                map.setMyLocationEnabled(true);
+            }
+        });
+        MapsInitializer.initialize(this);
 
-    public void InitalizeView(){
-        diary_share_button = (Button) findViewById(R.id.main_diary_share_button);
-        diary_button = (Button) findViewById(R.id.main_diary_button);
-        marking_button = (Button) findViewById(R.id.main_map_marking_button);
-    }
-
-
-    public void diary_share_listener(){
-
-        diary_share_button.setOnClickListener(new View.OnClickListener() {
+        //위치 확인 버튼 기능 추가
+        btnLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent shareintent = new Intent(getApplicationContext(),ShareDiaryTitle.class);
-                startActivity(shareintent);
+                requestMyLocation();
+            }
+        });
+
+        btnKor2Loc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(editText.getText().toString().length() > 0) {
+                    Location location = getLocationFromAddress(getApplicationContext(), editText.getText().toString());
+
+                    showCurrentLocation(location);
+                }
             }
         });
     }
 
-    public void diary_listener(){
 
-        diary_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent diaryintent = new Intent(getApplicationContext(),DiaryTitle.class);
-                startActivity(diaryintent);
+
+    private Location getLocationFromAddress(Context context, String address) {
+        Geocoder geocoder = new Geocoder(context);
+        List<Address> addresses;
+        Location resLocation = new Location("");
+        try {
+            addresses = geocoder.getFromLocationName(address, 5);
+            if((addresses == null) || (addresses.size() == 0)) {
+                return null;
             }
-        });
+            Address addressLoc = addresses.get(0);
+
+            resLocation.setLatitude(addressLoc.getLatitude());
+            resLocation.setLongitude(addressLoc.getLongitude());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resLocation;
     }
 
 
+    private void requestMyLocation() {
+        LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        try{
+            GPSListener gpsListener = new GPSListener();
+            long minTime = 10000;
+            float minDistance = 0 ;
+
+            manager.requestLocationUpdates(LocationManager.GPS_PROVIDER,minTime,minDistance,gpsListener);
+
+        } catch (SecurityException e){
+            e.printStackTrace();
+        }
+
+    }
+
+
+    class GPSListener implements LocationListener{
+
+        @Override
+        public void onLocationChanged(@NonNull Location location) {
+
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+            LocationListener.super.onStatusChanged(provider, status, extras);
+        }
+
+        @Override
+        public void onProviderEnabled(@NonNull String provider) {
+            LocationListener.super.onProviderEnabled(provider);
+        }
+
+        @Override
+        public void onProviderDisabled(@NonNull String provider) {
+            LocationListener.super.onProviderDisabled(provider);
+        }
+    }
+
+
+
+    private void showCurrentLocation(Location location) {
+        LatLng curPoint = new LatLng(location.getLatitude(), location.getLongitude());
+        String msg = "Latitutde : " + curPoint.latitude
+                + "\nLongitude : " + curPoint.longitude;
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+
+        //화면 확대, 숫자가 클수록 확대
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(curPoint, 15));
+
+        //마커 찍기
+        Location targetLocation = new Location("");
+        targetLocation.setLatitude(37.4937);
+        targetLocation.setLongitude(127.0643);
+        showMyMarker(targetLocation);
+    }
+
+    //------------------권한 설정 시작------------------------
+    private void checkDangerousPermissions() {
+        String[] permissions = {
+                android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                android.Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_WIFI_STATE
+        };
+
+        int permissionCheck = PackageManager.PERMISSION_GRANTED;
+        for (int i = 0; i < permissions.length; i++) {
+            permissionCheck = ContextCompat.checkSelfPermission(this, permissions[i]);
+            if (permissionCheck == PackageManager.PERMISSION_DENIED) {
+                break;
+            }
+        }
+
+        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "권한 있음", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show();
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[0])) {
+                Toast.makeText(this, "권한 설명 필요함.", Toast.LENGTH_LONG).show();
+            } else {
+                ActivityCompat.requestPermissions(this, permissions, 1);
+            }
+        }
+    }
 
     @Override
-    public void onMapReady(final GoogleMap googleMap) {
-        mMap = googleMap;
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            for (int i = 0; i < permissions.length; i++) {
+                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, permissions[i] + " 권한이 승인됨.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, permissions[i] + " 권한이 승인되지 않음.", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+    }
+    //------------------권한 설정 끝------------------------
 
-        LatLng SEOUL = new LatLng(37.56, 126.97);
-
-        MarkerOptions markerOptions = new MarkerOptions();         // 마커 생성
-        markerOptions.position(SEOUL);
-        markerOptions.title("서울");                         // 마커 제목
-        markerOptions.snippet("한국의 수도");         // 마커 설명
-        mMap.addMarker(markerOptions);
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));                 // 초기 위치
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));                         // 줌의 정도
-        googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);                           // 지도 유형 설정
-
+    private void showMyMarker(Location location) {
+        if(myMarker == null) {
+            myMarker = new MarkerOptions();
+            myMarker.position(new LatLng(location.getLatitude(), location.getLongitude()));
+            myMarker.title("◎ 내위치\n");
+            myMarker.snippet("여기가 어디지?");
+            map.addMarker(myMarker);
+        }
     }
 
 }
