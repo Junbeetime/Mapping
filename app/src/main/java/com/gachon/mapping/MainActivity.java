@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     //객체 선언
     SupportMapFragment mapFragment;
     GoogleMap map;
-    Button btnLocation, btnKor2Loc;
+    Button btnLocation, btnKor2Loc, btnMarker;
     EditText editText;
 
     MarkerOptions myMarker;
@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
         //객체 초기화
         editText = findViewById(R.id.editText);
-        btnLocation = findViewById(R.id.button1);
-        btnKor2Loc = findViewById(R.id.button2);
+        btnLocation = findViewById(R.id.confirm_myLocation);
+        btnKor2Loc = findViewById(R.id.Confirm);
+        btnMarker = findViewById(R.id.map_marking_button);
 
         //지도 프래그먼트 설정
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -88,6 +89,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnMarker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Location location = getLocationFromAddress(getApplicationContext(), editText.getText().toString());
+
+                MakeMarker(location);
+            }
+        });
         btnKor2Loc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,7 +109,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void MakeMarker(Location location){
 
+        LatLng Marker = new LatLng(location.getLatitude(), location.getLongitude());
+
+        // 구글 맵에 표시할 마커에 대한 옵션 설정
+        MarkerOptions makerOptions = new MarkerOptions();
+
+        makerOptions
+                .position(Marker)
+                .title("원하는 위치(위도, 경도)에 마커를 표시했습니다.");
+
+        // 마커를 생성한다.
+        map.addMarker(makerOptions);
+
+        //카메라를 해당 위치로 옮긴다.
+        map.moveCamera(CameraUpdateFactory.newLatLng(Marker));
+    }
 
     private Location getLocationFromAddress(Context context, String address) {
         Geocoder geocoder = new Geocoder(context);
@@ -125,43 +150,36 @@ public class MainActivity extends AppCompatActivity {
 
     private void requestMyLocation() {
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        try {
+            long minTime = 999999999;    //갱신 시간
+            float minDistance = 0;  //갱신에 필요한 최소 거리
 
-        try{
-            GPSListener gpsListener = new GPSListener();
-            long minTime = 10000;
-            float minDistance = 0 ;
+            manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTime, minDistance, new LocationListener() {
+                @Override
+                public void onLocationChanged(Location location) {
+                    showCurrentLocation(location);
+                }
 
-            manager.requestLocationUpdates(LocationManager.GPS_PROVIDER,minTime,minDistance,gpsListener);
+                @Override
+                public void onStatusChanged(String s, int i, Bundle bundle) {
 
-        } catch (SecurityException e){
+                }
+
+                @Override
+                public void onProviderEnabled(String s) {
+
+                }
+
+                @Override
+                public void onProviderDisabled(String s) {
+
+                }
+            });
+        } catch (SecurityException e) {
             e.printStackTrace();
         }
-
     }
 
-
-    class GPSListener implements LocationListener{
-
-        @Override
-        public void onLocationChanged(@NonNull Location location) {
-
-        }
-
-        @Override
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-            LocationListener.super.onStatusChanged(provider, status, extras);
-        }
-
-        @Override
-        public void onProviderEnabled(@NonNull String provider) {
-            LocationListener.super.onProviderEnabled(provider);
-        }
-
-        @Override
-        public void onProviderDisabled(@NonNull String provider) {
-            LocationListener.super.onProviderDisabled(provider);
-        }
-    }
 
 
 
