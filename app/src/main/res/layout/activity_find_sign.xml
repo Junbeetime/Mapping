@@ -10,192 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <include layout="@layout/layout_back"/>
+
+        <include layout="@layout/layout_back" />
     </LinearLayout>
 
-
-    <TextView
-        android:id="@+id/find_title"
-        android:layout_width="wrap_content"
-        android:layout_height="61dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="105dp"
-        android:fontFamily="@font/sanghu_dajungdagam"
-        android:text="아이디 찾기"
-        android:textColor="#5D5D5D"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="87dp" />
-
-    <EditText
-        android:id="@+id/sign_password_edittext"
-        android:layout_width="168dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="229dp"
-        android:ems="10"
-        android:fontFamily="@font/sanghu_dajungdagam"
-        android:hint="인증코드를 입력해주세요"
-        android:maxLength="20"
-        android:singleLine="true"
-        android:textColor="#5D5D5D"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="87dp" />
-
-    <EditText
-        android:id="@+id/sign_id_edittext"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="192dp"
-        android:ems="10"
-        android:fontFamily="@font/sanghu_dajungdagam"
-        android:hint="이메일를 입력해주세요"
-        android:maxLength="20"
-        android:singleLine="true"
-        android:textColor="#5D5D5D"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="87dp" />
-
-    <TextView
-        android:id="@+id/sign_password_text"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="238dp"
-        android:text="인증코드"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="113dp" />
-
-    <Button
-        android:id="@+id/Sign_id_check_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="283dp"
-        android:layout_marginBottom="506dp"
-        android:background="@drawable/solid_diary_button"
-        android:fontFamily="@font/sangju_gotgam"
-        android:text="인증코드 받기"
-        android:textSize="10sp" />
-
-    <Button
-        android:id="@+id/Sign_password_check_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="285dp"
-        android:layout_marginBottom="466dp"
-        android:background="@drawable/solid_diary_button"
-        android:fontFamily="@font/sangju_gotgam"
-        android:text="확인"
-        android:textSize="10sp" />
-
-    <Button
-        android:id="@+id/Sign_email_check_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="282dp"
-        android:layout_marginBottom="269dp"
-        android:background="@drawable/solid_diary_button"
-        android:fontFamily="@font/sangju_gotgam"
-        android:text="아이디 확인"
-        android:textSize="10sp" />
-
-    <Button
-        android:id="@+id/Sign_email_phone_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="281dp"
-        android:layout_marginBottom="219dp"
-        android:background="@drawable/solid_diary_button"
-        android:fontFamily="@font/sangju_gotgam"
-        android:text="인증코드 받기"
-        android:textSize="10sp" />
-
-    <Button
-        android:id="@+id/Sign_email_certification_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="282dp"
-        android:layout_marginBottom="172dp"
-        android:background="@drawable/solid_diary_button"
-        android:fontFamily="@font/sangju_gotgam"
-        android:text="확인"
-        android:textSize="10sp" />
-
-    <TextView
-        android:id="@+id/sign_id_text"
-        android:layout_width="wrap_content"
-        android:layout_height="39dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="200dp"
-        android:text="이메일"
-        app:layout_constraintHorizontal_bias="0.315"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <EditText
-        android:id="@+id/sign_email_edittext"
-        android:layout_width="168dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="428dp"
-        android:ems="10"
-        android:fontFamily="@font/sanghu_dajungdagam"
-        android:hint="아이디을 입력해주세요"
-        android:maxLength="20"
-        android:singleLine="true"
-        android:textColor="#5D5D5D"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="87dp" />
 
     <TextView
         android:id="@+id/find_title2"
@@ -204,8 +22,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="347dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="87dp"
         android:fontFamily="@font/sanghu_dajungdagam"
         android:text="비밀번호 찾기"
         android:textColor="#5D5D5D"
@@ -217,14 +35,14 @@
         tools:layout_editor_absoluteY="87dp" />
 
     <EditText
-        android:id="@+id/sign_phone_edittext"
+        android:id="@+id/editTextUserEmail"
         android:layout_width="168dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="477dp"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="191dp"
         android:ems="10"
         android:fontFamily="@font/sanghu_dajungdagam"
         android:hint="이메일를 입력해주세요"
@@ -239,90 +57,65 @@
         tools:layout_editor_absoluteY="87dp" />
 
     <TextView
-        android:id="@+id/sign_phone_text"
+        android:id="@+id/find_email_text"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="486dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="198dp"
         android:text="이메일"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="113dp" />
 
-    <TextView
-        android:id="@+id/sign_certification_text"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/buttonFind"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="533dp"
-        android:text="인증코드"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="113dp" />
-
-    <EditText
-        android:id="@+id/sign_certification_edittext"
-        android:layout_width="168dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="524dp"
-        android:ems="10"
-        android:fontFamily="@font/sanghu_dajungdagam"
-        android:hint="인증코드를 입력해주세요"
-        android:maxLength="20"
-        android:singleLine="true"
-        android:textColor="#5D5D5D"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="87dp" />
-
-    <TextView
-        android:id="@+id/sign_email_text"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="438dp"
-        android:text="아이디"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="113dp" />
+        android:layout_marginStart="165dp"
+        android:layout_marginBottom="463dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="이메일 발송"
+        android:textSize="10sp" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="555dp"
+        android:layout_marginTop="361dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="-3dp"
         app:srcCompat="@drawable/travelpeople" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="202dp"
-        android:layout_height="74dp"
+        android:id="@+id/imageView3"
+        android:layout_width="289dp"
+        android:layout_height="132dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="197dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="179dp"
+        android:layout_marginTop="269dp"
+        android:layout_marginEnd="-58dp"
         app:srcCompat="@drawable/sun" />
+
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:id="@+id/textviewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

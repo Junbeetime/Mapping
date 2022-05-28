@@ -155,7 +155,7 @@
         android:layout_marginBottom="234dp"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sangju_gotgam"
-        android:text="아이디/비밀번호 찾기"
+        android:text="비밀번호 찾기"
 
         android:textSize="10sp" />
 

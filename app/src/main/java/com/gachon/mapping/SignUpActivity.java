@@ -21,7 +21,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private EditText sign_email_text;
     private EditText sign_pwd_text;
-    private EditText sign_age_text;
+    private EditText sign_name_text;
     private EditText sign_phone_text;
     private Button sign_button;
 
@@ -42,7 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = sign_email_text.getText().toString().trim();
                 String pwd = sign_pwd_text.getText().toString().trim();
-                String age = sign_age_text.getText().toString().trim();
+                String age = sign_name_text.getText().toString().trim();
                 String phone = sign_phone_text.getText().toString().trim();
                 // 공백 부분 제거 --> trim
 
@@ -69,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
     public void InitalizeView(){
         sign_email_text = (EditText) findViewById(R.id.sign_email_edittext);
         sign_pwd_text = (EditText) findViewById(R.id.sign_password_edittext);
-        sign_age_text = (EditText) findViewById(R.id.sign_age_edittext);
+        sign_name_text = (EditText) findViewById(R.id.sign_name_edittext);
         sign_phone_text = (EditText) findViewById(R.id.sign_phone_edittext);
         sign_button = (Button) findViewById(R.id.sign_next_button);
     }

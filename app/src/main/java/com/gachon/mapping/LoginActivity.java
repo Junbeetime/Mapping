@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
         findbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent findintent = new Intent(getApplicationContext(), FindService.class);
+                Intent findintent = new Intent(getApplicationContext(), FindActivity.class);
                 startActivity(findintent);
             }
         });
