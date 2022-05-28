@@ -15,9 +15,6 @@
         <include layout="@layout/layout_menu" />
     </LinearLayout>
 
-
-
-
     <TextView
         android:id="@+id/btn_title"
         android:layout_width="150dp"
@@ -39,7 +36,7 @@
 
     <fragment
         android:id="@+id/map"
-        android:name="com.google.androidSu.gms.maps.pportMapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="1000px"
         android:layout_height="1300px"
         android:layout_marginLeft="15dp"
