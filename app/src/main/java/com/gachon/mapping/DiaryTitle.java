@@ -1,17 +1,22 @@
 package com.gachon.mapping;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,11 +30,12 @@ public class DiaryTitle extends AppCompatActivity {
 
     private Button btn_add, btn_delete;
 
-    private ListView lv_array;
+    private RecyclerView rv_click_apply;
 
-    private ArrayAdapter<String> arrayAdapter;
+    private ClickApplyAdapter clickApplyAdapter;
 
-    private List<String> itemList = new ArrayList<>(Arrays.asList());
+    private List<String> itemTitleList;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,7 +57,9 @@ public class DiaryTitle extends AppCompatActivity {
 
 
     }
+    @SuppressLint("WrongViewCast")
     private void init(){
+
         activity = this;
 
         et_item = findViewById(R.id.et_item);
@@ -60,53 +68,32 @@ public class DiaryTitle extends AppCompatActivity {
 
         btn_delete = findViewById(R.id.btn_delete);
 
-        lv_array = findViewById(R.id.lv_array);
+        rv_click_apply = findViewById(R.id.rv_click_apply);
 
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.diary_title_item, itemList);
+
+
     }
 
     private void setting(){
 
-        lv_array.setAdapter(arrayAdapter);
-        lv_array.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        rv_click_apply.setAdapter(clickApplyAdapter);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        rv_click_apply.setLayoutManager(linearLayoutManager);
     }
 
     private void addListner(){
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                itemList.add(et_item.getText().toString());
-                arrayAdapter.notifyDataSetChanged();
-            }
-        });
 
-        btn_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btn_add.setOnClickListener(this);
 
-                int index = lv_array.getCheckedItemPosition();
 
-                if(index < 0){
-                    Toast.makeText(activity, "삭제 대상을 선택하세요.", Toast.LENGTH_SHORT).show();;
-                }
-                else{
-                    itemList.remove(index);
-                    lv_array.clearChoices();
-                    et_item.setText("");
-                    arrayAdapter.notifyDataSetChanged();
-                }
-            }
-        });
 
-        lv_array.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(activity,"일기장",Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
 
 
 
 }
+
