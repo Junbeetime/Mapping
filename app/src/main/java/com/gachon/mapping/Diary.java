@@ -29,8 +29,8 @@ public class Diary extends AppCompatActivity implements View.OnClickListener {
         EditText diary_subject;
         diary_subject = findViewById(R.id.diary_subject);
         Intent intent = getIntent();
-        String text = intent.getStringExtra(title);
-        diary_subject.setText(text);
+        //String text = intent.getStringExtra(title);
+       // diary_subject.setText(text);
 
     }
 

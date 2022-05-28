@@ -44,7 +44,7 @@
             android:name=".Diary"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
+            android:name=".DiaryTitle"
             android:exported="false" />
 
         <meta-data
@@ -54,7 +54,7 @@
             android:name="com.google.android.gms.vision"
             android:value="@integer/google_play_services_version"/>
 
-        <activity android:name=".DiaryTitle"
+        <activity android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
