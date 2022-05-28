@@ -34,7 +34,7 @@ public class ShareDiaryTitle extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_share_diary);
 
         try {
             setContentView(R.layout.activity_share_diary);
