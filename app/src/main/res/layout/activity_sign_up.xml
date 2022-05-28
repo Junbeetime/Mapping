@@ -118,11 +118,39 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="277dp"
-        android:layout_marginBottom="613dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginBottom="594dp"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sangju_gotgam"
         android:text="중복확인"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/Sign_email_certification_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="276dp"
+        android:layout_marginBottom="358dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="확인"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/Sign_email_check_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="276dp"
+        android:layout_marginBottom="455dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="이메일 확인"
         android:textSize="10sp" />
 
     <Button
@@ -132,11 +160,25 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="279dp"
-        android:layout_marginBottom="573dp"
+        android:layout_marginStart="278dp"
+        android:layout_marginBottom="554dp"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sangju_gotgam"
         android:text="비밀번호 확인"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/Sign_email_phone_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="275dp"
+        android:layout_marginBottom="405dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="인증번호 받기"
         android:textSize="10sp" />
 
     <TextView
@@ -175,20 +217,6 @@
         tools:layout_editor_absoluteY="87dp" />
 
 
-    <Button
-        android:id="@+id/Sign_email_check_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="277dp"
-        android:layout_marginBottom="474dp"
-        android:background="@drawable/solid_diary_button"
-        android:fontFamily="@font/sangju_gotgam"
-        android:text="이메일 확인"
-        android:textSize="10sp" />
-
     <TextView
         android:id="@+id/sign_phone_text"
         android:layout_width="75dp"
@@ -223,20 +251,6 @@
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="87dp" />
-
-    <Button
-        android:id="@+id/Sign_email_phone_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="276dp"
-        android:layout_marginBottom="424dp"
-        android:background="@drawable/solid_diary_button"
-        android:fontFamily="@font/sangju_gotgam"
-        android:text="인증번호 받기"
-        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/sign_certification_text"
@@ -273,20 +287,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="87dp" />
 
-
-    <Button
-        android:id="@+id/Sign_email_certification_button"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="277dp"
-        android:layout_marginBottom="377dp"
-        android:background="@drawable/solid_diary_button"
-        android:fontFamily="@font/sangju_gotgam"
-        android:text="확인"
-        android:textSize="10sp" />
 
     <CheckBox
         android:id="@+id/sign_agree_checkbox"
@@ -352,6 +352,7 @@
         android:fontFamily="@font/sangju_gotgam"
         android:text="이용약관보기"
         android:textSize="8sp" />
+
     <Button
         android:id="@+id/sign_agree2_button"
         android:layout_width="66dp"
