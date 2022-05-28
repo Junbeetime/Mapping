@@ -45,12 +45,14 @@
         tools:ignore="MissingClass" />
 
     <Button
-        android:id="@+id/map_marking_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginRight="30dp"
+        android:id="@+id/main_map_marking_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="85dp"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sanghu_dajungdagam"
         android:text="표시하기"
@@ -58,15 +60,32 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/diary_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="310dp"
-        android:layout_marginTop="600dp"
+        android:id="@+id/main_diary_share_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="320dp"
+        android:layout_marginBottom="85dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:text="공유 일기장"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/main_diary_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="175dp"
+        android:layout_marginBottom="85dp"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sanghu_dajungdagam"
         android:text="일기장"
         android:textColor="@color/black"
         android:textStyle="bold" />
-
 </RelativeLayout>

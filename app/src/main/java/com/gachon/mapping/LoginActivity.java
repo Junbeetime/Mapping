@@ -13,6 +13,8 @@ public class LoginActivity extends AppCompatActivity {
     boolean flag;
     Button loginbutton;
     Button signupbutton;
+    Button findbutton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,11 +23,13 @@ public class LoginActivity extends AppCompatActivity {
         InitalizeView();
         LoginListener();
         SignupListener();
+        FindListener();
     }
 
     public void InitalizeView(){
         loginbutton = (Button) findViewById(R.id.login_login_Button);
         signupbutton = (Button) findViewById(R.id.login_signup_Button);
+        findbutton = (Button) findViewById(R.id.login_find_Button);
     }
 
     public void LoginListener(){
@@ -54,4 +58,14 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    public void FindListener(){
+
+        findbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent findintent = new Intent(getApplicationContext(), FindService.class);
+                startActivity(findintent);
+            }
+        });
+    }
 }

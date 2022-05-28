@@ -16,23 +16,52 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-
+    Button diary_share_button;
+    Button diary_button;
+    Button marking_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button Diary_button = findViewById(R.id.diary_button);
-        Diary_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,ShareDiaryTitle.class);
-                startActivity(intent);
-            }
-        });
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        InitalizeView();
+        diary_share_listener();
+        diary_listener();
+
     }
+
+    public void InitalizeView(){
+        diary_share_button = (Button) findViewById(R.id.main_diary_share_button);
+        diary_button = (Button) findViewById(R.id.main_diary_button);
+        marking_button = (Button) findViewById(R.id.main_map_marking_button);
+    }
+
+
+    public void diary_share_listener(){
+
+        diary_share_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent shareintent = new Intent(getApplicationContext(),ShareDiaryTitle.class);
+                startActivity(shareintent);
+            }
+        });
+    }
+
+    public void diary_listener(){
+
+        diary_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent diaryintent = new Intent(getApplicationContext(),DiaryTitle.class);
+                startActivity(diaryintent);
+            }
+        });
+    }
+
 
 
     @Override

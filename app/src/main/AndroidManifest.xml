@@ -30,6 +30,12 @@
         <activity
             android:name=".Diary"
             android:exported="false" />
+        <activity
+            android:name=".FindService"
+            android:exported="false" />
+        <activity
+            android:name=".DiaryTitle"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
