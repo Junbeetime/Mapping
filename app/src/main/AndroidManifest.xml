@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mapping">
         <activity
-            android:name=".SignUpActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".StartActivity"
@@ -34,7 +34,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBPEPe286Kk1x_77p476_efFLuZ3lKo6VU"/>
-        <activity android:name=".LoginActivity"
+        <activity android:name=".SignUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

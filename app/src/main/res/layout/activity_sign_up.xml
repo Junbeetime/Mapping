@@ -1,309 +1,383 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FAF1E2">
 
     <TextView
-        android:id="@+id/textViewSignup"
+        android:id="@+id/sign_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sanghu_dajungdagam"
         android:text="회원가입"
-        android:textSize="24sp"
+        android:textColor="#5D5D5D"
+        android:textSize="50dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="87dp" />
 
     <TextView
-        android:id="@+id/textViewId"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_id_text"
+        android:layout_width="26dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="111dp"
         android:text="ID"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
         app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextID"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_id_edittext"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="103dp"
         android:ems="10"
-        android:hint="ID"
-        android:inputType="textPersonName"
-        android:maxLength="15"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonCheckRepetitionId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="중복 확인"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        tools:layout_editor_absoluteY="51dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="55dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="355dp" />
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:hint="원하는 아이디를 입력해주세요"
+        android:maxLength="20"
+        android:singleLine="true"
+        android:textColor="#5D5D5D"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="87dp" />
 
     <TextView
-        android:id="@+id/textViewPassword"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_password_text"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="149dp"
         android:text="비밀번호"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="113dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="비밀번호"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="113dp" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_password_edittext"
+        android:layout_width="168dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="76dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="140dp"
         android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toEndOf="@+id/textViewPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextId" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:lines="2"
-        android:text="비밀번호\n확인"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:hint="원하는 비밀번호를 입력해주세요"
+        android:maxLength="20"
+        android:singleLine="true"
+        android:textColor="#5D5D5D"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="150dp" />
+        tools:layout_editor_absoluteY="87dp" />
+
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="비밀번호 \n확인"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCheckRepetitionId"
-        tools:layout_editor_absoluteX="266dp" />
+        android:id="@+id/Sign_id_check_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="277dp"
+        android:layout_marginBottom="613dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="중복확인"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/Sign_password_check_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="279dp"
+        android:layout_marginBottom="573dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="비밀번호 확인"
+        android:textSize="10sp" />
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_email_text"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="251dp"
         android:text="이메일"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="260dp" />
+        tools:layout_editor_absoluteY="113dp" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_email_edittext"
+        android:layout_width="168dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="241dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="252dp" />
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:hint="이메일을 입력해주세요"
+        android:maxLength="20"
+        android:singleLine="true"
+        android:textColor="#5D5D5D"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="87dp" />
+
+
+    <Button
+        android:id="@+id/Sign_email_check_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="277dp"
+        android:layout_marginBottom="474dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="이메일 확인"
+        android:textSize="10sp" />
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_phone_text"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="299dp"
         android:text="전화번호"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:layout_editor_absoluteX="2dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="중복 확인"
-        tools:layout_editor_absoluteX="265dp"
-        tools:layout_editor_absoluteY="249dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="113dp" />
 
     <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_phone_edittext"
+        android:layout_width="168dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="290dp"
         android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="300dp" />
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:hint="전화번호를 입력해주세요"
+        android:maxLength="20"
+        android:singleLine="true"
+        android:textColor="#5D5D5D"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="87dp" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="인증번호\n보내기"
-        android:textSize="8sp"
-        tools:layout_editor_absoluteX="267dp"
-        tools:layout_editor_absoluteY="297dp" />
+        android:id="@+id/Sign_email_phone_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="276dp"
+        android:layout_marginBottom="424dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="인증번호 받기"
+        android:textSize="10sp" />
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_certification_text"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="346dp"
         android:text="인증번호"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.078"
-        tools:layout_editor_absoluteX="2dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="113dp" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_certification_edittext"
+        android:layout_width="168dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="337dp"
         android:ems="10"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="356dp" />
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:hint="인증번호를 입력해주세요"
+        android:maxLength="20"
+        android:singleLine="true"
+        android:textColor="#5D5D5D"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="87dp" />
+
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/Sign_email_certification_button"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="277dp"
+        android:layout_marginBottom="377dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
         android:text="확인"
-        tools:layout_editor_absoluteX="267dp"
-        tools:layout_editor_absoluteY="356dp" />
+        android:textSize="10sp" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/sign_agree_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="83dp"
+        android:layout_marginBottom="274dp"
+        android:fontFamily="@font/sanghu_dajungdagam"
         android:text="모두 동의합니다"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        tools:layout_editor_absoluteY="436dp" />
+        android:textSize="15sp" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/sign_agree1_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="134dp"
+        android:layout_marginBottom="240dp"
+        android:fontFamily="@font/sangju_haerye"
         android:text="이용약관 동의"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.144"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        android:textSize="10sp" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/sign_agree2_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="134dp"
+        android:layout_marginBottom="175dp"
+        android:fontFamily="@font/sangju_haerye"
         android:text="개인정보 취급방침 동의"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.094"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        android:textSize="10sp" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/sign_agree3_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="134dp"
+        android:layout_marginBottom="208dp"
+        android:fontFamily="@font/sangju_haerye"
         android:text="마케팅 정보 수신 동의"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.191"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+        android:textSize="10sp" />
+
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="회원가입"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4" />
+        android:id="@+id/sign_agree1_button"
+        android:layout_width="66dp"
+        android:layout_height="26dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="285dp"
+        android:layout_marginBottom="243dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="이용약관보기"
+        android:textSize="8sp" />
+    <Button
+        android:id="@+id/sign_agree2_button"
+        android:layout_width="66dp"
+        android:layout_height="26dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="285dp"
+        android:layout_marginBottom="208dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="마케팅약관보기"
+        android:textSize="8sp" />
 
     <Button
-        android:id="@+id/buttonReadall1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=">>전문보기"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/checkBox2"
-        tools:layout_editor_absoluteY="460dp" />
+        android:id="@+id/sign_agree3_button"
+        android:layout_width="66dp"
+        android:layout_height="26dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="286dp"
+        android:layout_marginBottom="175dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sangju_gotgam"
+        android:text="약관보기"
+        android:textSize="8sp" />
 
     <Button
-        android:id="@+id/buttonReadall2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=">>전문보기"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/checkBox3"
-        tools:layout_editor_absoluteY="491dp" />
-
-    <Button
-        android:id="@+id/buttonReadall3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=">>전문보기"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/checkBox4"
-        tools:layout_editor_absoluteY="525dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="106dp"
-        android:layout_height="137dp"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.458"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:srcCompat="@drawable/mapping" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/sign_next_button"
+        android:layout_width="292dp"
+        android:layout_height="31dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="53dp"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/solid_diary_button"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:text="회원가입 하기"
+        android:textSize="15sp" />
+</RelativeLayout>
