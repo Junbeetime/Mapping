@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -29,7 +30,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -42,10 +42,11 @@ public class MainActivity extends AppCompatActivity {
     GoogleMap map;
     Button btnLocation, btnKor2Loc, btnMarker;
     EditText editText;
+    Button diary_button;
+
+    ImageButton btn_back;
 
     MarkerOptions myMarker;
-
-    private ImageButton btn_back;
 
 
 
@@ -54,6 +55,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //권한 설정
+        checkDangerousPermissions();
+
+        //객체 초기화
+        editText = findViewById(R.id.editText);
+        btnLocation = findViewById(R.id.confirm_myLocation);
+        btnKor2Loc = findViewById(R.id.Confirm);
+        btnMarker = findViewById(R.id.map_marking_button);
+        diary_button = findViewById(R.id.diary_button);
+        btn_back = findViewById(R.id.btn_back);
+
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,12 +73,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //권한 설정
-        checkDangerousPermissions();
 
-        //객체 초기화
-        editText = findViewById(R.id.editText);
-        btnMarker = findViewById(R.id.map_marking_button);
+
 
         //지도 프래그먼트 설정
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -114,6 +122,14 @@ public class MainActivity extends AppCompatActivity {
 
                     showCurrentLocation(location);
                 }
+            }
+        });
+
+        diary_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),DiaryTitle.class);
+                startActivity(intent);
             }
         });
     }
