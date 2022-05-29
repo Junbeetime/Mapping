@@ -14,7 +14,6 @@ import android.widget.ImageButton;
 public class Diary extends AppCompatActivity  {
 
     private ImageButton btn_back;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +22,8 @@ public class Diary extends AppCompatActivity  {
         ImageButton main;
 
         EditText diary_address;
+  /////////////////////////////////////////////////////////////////
 
-        btn_back = findViewById(R.id.btn_back);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,11 +31,11 @@ public class Diary extends AppCompatActivity  {
                 finish();
             }
         });
+  /////////////////////////////////////////////////////////////////
+
 
         diary_address = findViewById(R.id.diary_address);
-
-        main = findViewById(R.id.main);
-
+        main = findViewById(R.id.diary_marking);
         main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,5 +45,15 @@ public class Diary extends AppCompatActivity  {
             }
         });
 
+   ////////////////////////////////////////////////////////////////////
+
+
+
+
+
     }
+
+
+
+
 }

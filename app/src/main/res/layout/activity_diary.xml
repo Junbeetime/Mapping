@@ -82,7 +82,7 @@
         android:textColor="#5D5D5D" />
 
     <ImageButton
-        android:id="@+id/main"
+        android:id="@+id/diary_marking"
         android:layout_width="50dp"
         android:layout_height="42dp"
         android:layout_above="@id/diary_imageview"
