@@ -82,8 +82,7 @@ public class Diary extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
 
-                LoginActivity email_info = new LoginActivity();
-                String email_text = email_info.getEmail_text();
+
                 String getAddress = diaryaddress.getText().toString();
                 String getContent = diarycontent.getText().toString();
 
@@ -93,7 +92,7 @@ public class Diary extends AppCompatActivity  {
                 result.put("email", getContent);
 
 
-                writecontent(email_text, getAddress,getContent);
+                writecontent("1", getAddress,getContent);
 
             }
         });
