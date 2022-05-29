@@ -26,10 +26,11 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonFind;
     private TextView textviewMessage;
     private ProgressDialog progressDialog;
+    private ImageButton backbutton;
     //define firebase object
     private FirebaseAuth firebaseAuth;
 
-    private ImageButton btn_back;
+
 
 
 
@@ -42,15 +43,18 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
         buttonFind = (Button) findViewById(R.id.buttonFind);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
-
+        backbutton = (ImageButton) findViewById(R.id.find_back_button);
         buttonFind.setOnClickListener(this);
 
+        backbuttonlistener();
+/*
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+*/
 
     }
 
@@ -77,5 +81,18 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
                     });
 
         }
+
     }
+
+    public void backbuttonlistener(){
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent backintent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(backintent);
+            }
+        });
+    }
+
+
 }
