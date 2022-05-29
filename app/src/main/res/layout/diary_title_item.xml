@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
 
-    <CheckedTextView
+    <TextView
         android:id="@+id/ck_click_title"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -13,7 +13,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:checkMark="?android:listChoiceIndicatorSingle"
         android:background="@drawable/solid_diary_border"
         android:drawableLeft="@drawable/face"
         android:fontFamily="@font/sanghu_dajungdagam"
@@ -22,11 +21,28 @@
         android:textColor="@color/black"
         android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/btn_click_item"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/solid_diary_border"
-        android:drawableTop="@drawable/pencil"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_click_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/solid_diary_border"
+            android:drawableTop="@drawable/pencil"/>
+        <Button
+            android:id="@+id/btn_delete_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/solid_diary_border"
+            android:drawableTop="@drawable/delete"/>
+
+
+    </LinearLayout>
+
+
 </LinearLayout>

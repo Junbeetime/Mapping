@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,8 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
     //define firebase object
     private FirebaseAuth firebaseAuth;
 
+    private ImageButton btn_back;
+
 
 
     @Override
@@ -41,6 +44,13 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
         firebaseAuth = FirebaseAuth.getInstance();
 
         buttonFind.setOnClickListener(this);
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
 

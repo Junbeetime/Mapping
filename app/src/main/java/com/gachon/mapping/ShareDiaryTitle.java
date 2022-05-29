@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -31,6 +32,8 @@ public class ShareDiaryTitle extends AppCompatActivity {
 
     private List<String> itemList = new ArrayList<>(Arrays.asList());
 
+    private ImageButton btn_back;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,13 @@ public class ShareDiaryTitle extends AppCompatActivity {
             LogService.error(this, ex.getMessage(), ex);
         }
 
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
     }
     private void init(){
@@ -58,7 +68,6 @@ public class ShareDiaryTitle extends AppCompatActivity {
 
         btn_add = findViewById(R.id.btn_add);
 
-        btn_delete = findViewById(R.id.btn_delete);
 
         lv_array = findViewById(R.id.lv_array);
 

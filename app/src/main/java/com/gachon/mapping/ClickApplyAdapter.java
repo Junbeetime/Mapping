@@ -37,11 +37,15 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
         this.menuClickListener = menuClickListener;
     }
 
+
+
     public class ClickApplyHolder extends RecyclerView.ViewHolder
     {
         private TextView ck_click_title;
 
         private Button btn_click_item;
+
+        private Button btn_delete_item;
 
         public ClickApplyHolder(@NonNull View itemView)
         {
@@ -50,6 +54,10 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
             ck_click_title = itemView.findViewById(R.id.ck_click_title);
 
             btn_click_item = itemView.findViewById(R.id.btn_click_item);
+
+            btn_delete_item = itemView.findViewById(R.id.btn_delete_item);
+
+
         }
     }
 
@@ -73,9 +81,12 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
 
         holder.btn_click_item.setOnClickListener(clickListener);
 
-        holder.btn_click_item.setOnCreateContextMenuListener(menuClickListener);
-
         holder.btn_click_item.setTag(position);
+
+        holder.btn_delete_item.setOnClickListener(clickListener);
+
+        holder.btn_delete_item.setTag(position);
+
     }
 
     @Override
@@ -93,4 +104,8 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
     {
         this.currentPosition = currentPosition;
     }
+
+
+
+
 }

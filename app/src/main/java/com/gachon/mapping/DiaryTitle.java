@@ -42,6 +42,8 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
     private List<String> itemNameList;
 
+    private ImageButton btn_back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -61,6 +63,13 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
         {
             LogService.error(this, ex.getMessage(), ex);
         }
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 
@@ -120,6 +129,16 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
             intent.putExtra("title",et_item.getText().toString());
             startActivity(intent);
         }
+
+        else if(view.getId() == R.id.btn_delete_item){
+            int position = (int) view.getTag();
+
+            itemNameList.remove(position);
+
+            clickApplyAdapter.notifyDataSetChanged();
+
+        }
+
     }
 
 
