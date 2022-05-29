@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
     Button diary_button;
 
-    ImageButton btn_back;
 
     MarkerOptions myMarker;
 
@@ -66,14 +65,15 @@ public class MainActivity extends AppCompatActivity {
         btnMarker = findViewById(R.id.map_marking_button);
         diary_button = findViewById(R.id.diary_button);
         main_back_button = findViewById(R.id.main_back_button);
-/*        btn_back = findViewById(R.id.btn_back);
 
-        btn_back.setOnClickListener(new View.OnClickListener() {
+        diary_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent intent = new Intent(getApplicationContext(),DiaryTitle.class);
+                startActivityForResult(intent,200);
             }
-        });*/
+        });
+
         main_back_buttonlistener();
 
 

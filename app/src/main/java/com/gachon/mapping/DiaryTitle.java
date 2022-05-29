@@ -64,12 +64,14 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
             LogService.error(this, ex.getMessage(), ex);
         }
 
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+//        btn_back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
+
+
     }
 
 

@@ -38,13 +38,13 @@
 
     <EditText
         android:id="@+id/diary_address"
-        android:layout_width="138dp"
+        android:layout_width="300dp"
         android:layout_height="51dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/sanghu_dajungdagam"
         android:gravity="center"
-        android:hint="제목을 써주세요"
+        android:hint="주소를 입력하세요"
         android:lines="10"
         android:maxLines="10"
         android:textColor="#5D5D5D"
