@@ -9,7 +9,7 @@
     tools:context=".Diary">
 
 
-    <include layout="@layout/layout_back"/>
+
 
     <include layout="@layout/layout_menu" />
 
@@ -93,19 +93,34 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="20sp"/>
+
     <Button
         android:id="@+id/diary_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/map"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="50dp"
         android:layout_marginRight="10dp"
-        android:layout_alignParentRight="true"
         android:background="@drawable/solid_diary_button"
         android:fontFamily="@font/sanghu_dajungdagam"
         android:text="일기장"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
-
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <ImageButton
+        android:id="@+id/main_back_button"
+        android:layout_width="44dp"
+        android:layout_height="29dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="362dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
+        android:padding="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back" />
 </RelativeLayout>

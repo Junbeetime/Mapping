@@ -26,13 +26,13 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".ShareDiaryTitle"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".idActivity"

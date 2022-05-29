@@ -14,6 +14,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,7 +37,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     //로그캣 사용 설정
     private static final String TAG = "MainActivity";
-
+    private ImageButton main_back_button;
     //객체 선언
     SupportMapFragment mapFragment;
     GoogleMap map;
@@ -64,15 +65,16 @@ public class MainActivity extends AppCompatActivity {
         btnKor2Loc = findViewById(R.id.Confirm);
         btnMarker = findViewById(R.id.map_marking_button);
         diary_button = findViewById(R.id.diary_button);
-        btn_back = findViewById(R.id.btn_back);
+        main_back_button = findViewById(R.id.main_back_button);
+/*        btn_back = findViewById(R.id.btn_back);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
-
+        });*/
+        main_back_buttonlistener();
 
 
 
@@ -278,4 +280,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void main_back_buttonlistener(){
+        main_back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent main_back_intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(main_back_intent);
+            }
+        });
+    }
 }

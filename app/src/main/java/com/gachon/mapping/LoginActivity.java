@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         findbutton = (Button) findViewById(R.id.login_find_Button);
         email_text = (EditText) findViewById(R.id.login_textid);
         pwd_text = (EditText) findViewById(R.id.login_text_password);
+
     }
 
     public void LoginListener(){
@@ -103,4 +104,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,7 +25,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText sign_name_text;
     private EditText sign_phone_text;
     private Button sign_button;
-
+    private ImageButton sign_back_button;
     FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
@@ -34,7 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         InitalizeView();
-
+        sign_backbuttonliestener();
         firebaseAuth = FirebaseAuth.getInstance();
 
         sign_button.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +73,17 @@ public class SignUpActivity extends AppCompatActivity {
         sign_name_text = (EditText) findViewById(R.id.sign_name_edittext);
         sign_phone_text = (EditText) findViewById(R.id.sign_phone_edittext);
         sign_button = (Button) findViewById(R.id.sign_next_button);
+        sign_back_button = (ImageButton) findViewById(R.id.sign_back_button);
+    }
+
+    public void sign_backbuttonliestener(){
+        sign_back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sign_back_intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(sign_back_intent);
+            }
+        });
     }
 
 }
