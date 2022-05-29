@@ -13,25 +13,15 @@ import android.widget.ImageButton;
 
 public class Diary extends AppCompatActivity  {
 
-    private ImageButton btn_back;
+    ImageButton main;
+
+    EditText diary_address;
+
+    ImageButton btn_back;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
-
-        ImageButton main;
-
-        EditText diary_address;
-  /////////////////////////////////////////////////////////////////
-
-
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-  /////////////////////////////////////////////////////////////////
 
 
         diary_address = findViewById(R.id.diary_address);
@@ -40,17 +30,17 @@ public class Diary extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                intent.putExtra("address",diary_address.getText().toString());
-                startActivity(intent);
+                startActivityForResult(intent, 101);
             }
         });
 
-   ////////////////////////////////////////////////////////////////////
-
-
-
-
-
+        btn_back = findViewById(R.id.btn_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();;
+            }
+        });
     }
 
 

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <include layout="@layout/layout_back"/>
-        <include layout="@layout/layout_menu"/>
+
 
     </LinearLayout>
 

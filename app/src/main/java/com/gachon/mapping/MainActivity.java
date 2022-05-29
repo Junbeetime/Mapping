@@ -30,6 +30,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
@@ -70,9 +71,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),DiaryTitle.class);
-                startActivityForResult(intent,200);
+                intent.putExtra("mainAddress",editText.getText().toString());
+                startActivityForResult(intent,101);
             }
         });
+
+
 
         main_back_buttonlistener();
 
@@ -152,7 +156,10 @@ public class MainActivity extends AppCompatActivity {
 
         //카메라를 해당 위치로 옮긴다.
         map.moveCamera(CameraUpdateFactory.newLatLng(Marker));
+
     }
+
+
 
     private Location getLocationFromAddress(Context context, String address) {
         Geocoder geocoder = new Geocoder(context);

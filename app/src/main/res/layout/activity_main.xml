@@ -9,7 +9,6 @@
     tools:context=".Diary">
 
 
-    <include layout="@layout/layout_menu" />
 
     <TextView
         android:id="@+id/btn_title"
@@ -51,8 +50,8 @@
         android:layout_marginTop="100dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/solid_diary_button"
-        android:fontFamily="@font/sanghu_dajungdagam"
         android:ems="10"
+        android:fontFamily="@font/sanghu_dajungdagam"
         android:hint="  한글 주소 입력"
         android:inputType="textPersonName"
 
@@ -114,9 +113,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="373dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="353dp"
         android:layout_marginBottom="5dp"
         android:background="@android:color/transparent"
         android:padding="0dp"

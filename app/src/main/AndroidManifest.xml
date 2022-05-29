@@ -46,6 +46,9 @@
         <activity
             android:name=".Diary"
             android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
         
 
         <meta-data
