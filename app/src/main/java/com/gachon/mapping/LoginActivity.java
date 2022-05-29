@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText pwd_text;
     private FirebaseAuth firebaseAuth;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String id = email_text.getText().toString().trim();
                 String pwd = pwd_text.getText().toString().trim();
 
@@ -58,6 +62,13 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+    public String getEmail_text(){
+        String id = email_text.getText().toString();
+
+        return id;
+    }
+
 
     public void InitalizeView(){
         loginbutton = (Button) findViewById(R.id.login_login_Button);
@@ -104,5 +115,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }

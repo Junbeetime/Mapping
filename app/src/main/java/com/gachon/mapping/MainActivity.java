@@ -30,6 +30,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         btnMarker = findViewById(R.id.map_marking_button);
         diary_button = findViewById(R.id.diary_button);
         main_back_button = findViewById(R.id.main_back_button);
+
+
 
         diary_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,10 +122,16 @@ public class MainActivity extends AppCompatActivity {
         btnKor2Loc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = getIntent();
+                String address = intent.getStringExtra("address");
+
                 if(editText.getText().toString().length() > 0) {
                     Location location = getLocationFromAddress(getApplicationContext(), editText.getText().toString());
 
                     showCurrentLocation(location);
+                }
+                else if(address != null){
+                    editText.setText(address);
                 }
             }
         });
@@ -152,7 +161,27 @@ public class MainActivity extends AppCompatActivity {
 
         //카메라를 해당 위치로 옮긴다.
         map.moveCamera(CameraUpdateFactory.newLatLng(Marker));
+
+        this.map.setOnMarkerClickListener(markerCliackListener);
     }
+
+    GoogleMap.OnMarkerClickListener markerCliackListener = new GoogleMap.OnMarkerClickListener() {
+        @Override
+        public boolean onMarkerClick(@NonNull Marker marker) {
+            Intent intent = getIntent();
+            String address = intent.getStringExtra("address");
+            if(address != null){
+                String markerId = marker.getId();
+                Intent startintent = new Intent();
+                intent.putExtra("address",editText.getText().toString());
+                setResult(200,startintent);
+                finish();
+
+            }
+            return false;
+
+        }
+    };
 
     private Location getLocationFromAddress(Context context, String address) {
         Geocoder geocoder = new Geocoder(context);

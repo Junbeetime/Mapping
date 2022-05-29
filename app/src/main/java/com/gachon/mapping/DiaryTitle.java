@@ -64,12 +64,6 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
             LogService.error(this, ex.getMessage(), ex);
         }
 
-//        btn_back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                finish();
-//            }
-//        });
 
 
     }
@@ -82,6 +76,8 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
         et_item = findViewById(R.id.et_item);
 
         btn_add = findViewById(R.id.btn_add);
+
+        btn_back = findViewById(R.id.btn_back);
 
         rv_click_apply = findViewById(R.id.rv_click_apply);
 
@@ -105,6 +101,7 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
     {
 
         btn_add.setOnClickListener(this);
+        btn_back.setOnClickListener(this);
     }
 
     @Override
@@ -139,6 +136,9 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
             clickApplyAdapter.notifyDataSetChanged();
 
+        }
+        else if (view.getId() == R.id.btn_back){
+            finish();
         }
 
     }

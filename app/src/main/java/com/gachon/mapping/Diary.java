@@ -30,12 +30,15 @@ import java.util.HashMap;
 
 public class Diary extends AppCompatActivity  {
 
+    private EditText diary_address;
     private ImageButton btn_back;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference mDatabase = database.getReference();
     private Button sendbutton;
     private EditText diarycontent;
     private EditText diaryaddress;
+
+
 
 
 
@@ -48,17 +51,18 @@ public class Diary extends AppCompatActivity  {
         diarycontent = (EditText) findViewById(R.id.diary_content);
         sendbutton = (Button)findViewById(R.id.diary_save_button);
         diaryaddress = (EditText) findViewById(R.id.diary_address);
-        EditText diary_address;
+        btn_back = findViewById(R.id.btn_back);
   /////////////////////////////////////////////////////////////////
 
 
-/*        btn_back.setOnClickListener(new View.OnClickListener() {
+       btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });*/
+       });
   /////////////////////////////////////////////////////////////////
+
 
 
         diary_address = findViewById(R.id.diary_address);
@@ -68,7 +72,7 @@ public class Diary extends AppCompatActivity  {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 intent.putExtra("address",diary_address.getText().toString());
-                startActivity(intent);
+                startActivityForResult(intent,101);
             }
         });
     ///////////////////////////////////////////////////////////////////////
@@ -77,6 +81,9 @@ public class Diary extends AppCompatActivity  {
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                LoginActivity email_info = new LoginActivity();
+                String email_text = email_info.getEmail_text();
                 String getAddress = diaryaddress.getText().toString();
                 String getContent = diarycontent.getText().toString();
 
@@ -85,22 +92,39 @@ public class Diary extends AppCompatActivity  {
                 result.put("address",getAddress);
                 result.put("email", getContent);
 
-                writecontent("1",getAddress,getContent);
+
+                writecontent(email_text, getAddress,getContent);
 
             }
         });
 
-    //////////////////////////////////////////////////////////////////////////
-        //데이터베이스 oncreate//
+    ////////////////////////////////////////////////////////////////////////
+//        데이터베이스 oncreate//
 
         readcontent();
 
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == 101){
+            if (data != null){
+                String address = data.getStringExtra("address");
+                if(address != null){
+                    diary_address.setText(address);
+                    Toast.makeText(Diary.this,address,Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
     //////////////////////////////////////////////////////////////////////
     // Data Base send //
     private void writecontent(String userId, String address, String content) {
         User user = new User(address, content);
+
 
         mDatabase.child("users").child(userId).setValue(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -121,6 +145,8 @@ public class Diary extends AppCompatActivity  {
     }
 
     private void readcontent(){
+
+
         mDatabase.child("users").child("1").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
