@@ -26,13 +26,13 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".DiaryTitle"
             android:exported="false" />
         <activity
             android:name=".ShareDiaryTitle"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".idActivity"
@@ -46,7 +46,7 @@
         <activity
             android:name=".Diary"
             android:exported="false" />
-
+        
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
