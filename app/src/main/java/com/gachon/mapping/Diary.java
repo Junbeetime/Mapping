@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +39,8 @@ public class Diary extends AppCompatActivity  {
     private Button sendbutton;
     private EditText diarycontent;
     private EditText diaryaddress;
-    private EditText email_text;
+    private FirebaseAuth firebaseAuth; //mAuth
+
 
 
 
@@ -51,7 +54,6 @@ public class Diary extends AppCompatActivity  {
         diarycontent = (EditText) findViewById(R.id.diary_content);
         sendbutton = (Button)findViewById(R.id.diary_save_button);
         diaryaddress = (EditText) findViewById(R.id.diary_address);
-        email_text = findViewById(R.id.login_textid);
         btn_back = findViewById(R.id.btn_back);
   /////////////////////////////////////////////////////////////////
 
@@ -63,6 +65,9 @@ public class Diary extends AppCompatActivity  {
             }
        });
   /////////////////////////////////////////////////////////////////
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
 
 
@@ -84,17 +89,18 @@ public class Diary extends AppCompatActivity  {
             public void onClick(View view) {
 
 
-
                 String getAddress = diaryaddress.getText().toString();
                 String getContent = diarycontent.getText().toString();
-
+                String uid = firebaseAuth.getUid();
                 //hash맵
+
                 HashMap result = new HashMap<>();
+                result.put("uid",uid);
                 result.put("address",getAddress);
-                result.put("email", getContent);
+                result.put("content", getContent);
 
 
-                writecontent(email_text.getText().toString() + "1", getAddress,getContent);
+                writecontent("1", getAddress,getContent);
 
             }
         });
@@ -123,11 +129,11 @@ public class Diary extends AppCompatActivity  {
 
     //////////////////////////////////////////////////////////////////////
     // Data Base send //
-    private void writecontent(String userId, String address, String content) {
-        User user = new User(address, content);
+    private void writecontent(String uid, String address, String content) {
+        User user = new User(uid, address, content);
 
 
-        mDatabase.child("users").child(userId).setValue(user)
+        mDatabase.child("Diary").child(uid).setValue(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -146,7 +152,6 @@ public class Diary extends AppCompatActivity  {
     }
 
     private void readcontent(){
-
 
 
         mDatabase.child("users").child("1").addValueEventListener(new ValueEventListener() {

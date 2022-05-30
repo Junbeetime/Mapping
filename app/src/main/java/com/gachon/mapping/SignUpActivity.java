@@ -12,11 +12,16 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+
+import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -26,9 +31,11 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText sign_phone_text;
     private Button sign_button;
     private ImageButton btn_back;
-    FirebaseAuth firebaseAuth;
-    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private FirebaseAuth firebaseAuth; //mAuth
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance(); // mDatabase
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
+    private FirebaseStorage mStorage;  //mStorage
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +44,8 @@ public class SignUpActivity extends AppCompatActivity {
         InitalizeView();
         sign_backbuttonliestener();
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        mStorage = FirebaseStorage.getInstance();
 
         sign_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String pwd = sign_pwd_text.getText().toString().trim();
                 String age = sign_name_text.getText().toString().trim();
                 String phone = sign_phone_text.getText().toString().trim();
+                String uid = firebaseAuth.getUid();
                 // 공백 부분 제거 --> trim
 
                 firebaseAuth.createUserWithEmailAndPassword(email, pwd)
@@ -52,6 +62,14 @@ public class SignUpActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 if (task.isSuccessful()) {
+
+                                    HashMap result = new HashMap<>();
+                                    result.put("uid",uid);
+                                    result.put("email", email);
+
+
+                                    writecontent(uid, uid,email);
+
                                     Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
@@ -62,8 +80,18 @@ public class SignUpActivity extends AppCompatActivity {
                                 }
                             }
                         });
+
+
+
             }
+
+
+
         });
+
+        ///////////////////////////////////////
+
+
 
     }
 
@@ -85,5 +113,28 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
+
+    ////////////////////////////////////////////////////////////////////////////
+    private void writecontent(String Uid, String uid, String email) {
+        UserInfo user = new UserInfo(uid, email);
+
+        databaseReference.child("usersInfo").child(Uid).setValue(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // 성공적으로 저장했습니다.
+                        Toast.makeText(SignUpActivity.this, "저장 완료!", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //실패..
+                        Toast.makeText(SignUpActivity.this, "실패...", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
 
 }
