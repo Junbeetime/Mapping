@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginbutton;
     private Button signupbutton;
     private Button findbutton;
-    private EditText email_text;
+    public static EditText email_text;
     private EditText pwd_text;
     private FirebaseAuth firebaseAuth;
 
@@ -115,6 +115,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 
 }

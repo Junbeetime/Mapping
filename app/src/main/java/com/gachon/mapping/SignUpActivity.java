@@ -25,7 +25,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText sign_name_text;
     private EditText sign_phone_text;
     private Button sign_button;
-    private ImageButton sign_back_button;
+    private ImageButton btn_back;
     FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
@@ -73,11 +73,11 @@ public class SignUpActivity extends AppCompatActivity {
         sign_name_text = (EditText) findViewById(R.id.sign_name_edittext);
         sign_phone_text = (EditText) findViewById(R.id.sign_phone_edittext);
         sign_button = (Button) findViewById(R.id.sign_next_button);
-        sign_back_button = (ImageButton) findViewById(R.id.sign_back_button);
+        btn_back = (ImageButton) findViewById(R.id.btn_back);
     }
 
     public void sign_backbuttonliestener(){
-        sign_back_button.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent sign_back_intent = new Intent(getApplicationContext(),LoginActivity.class);

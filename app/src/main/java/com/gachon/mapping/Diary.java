@@ -37,7 +37,7 @@ public class Diary extends AppCompatActivity  {
     private Button sendbutton;
     private EditText diarycontent;
     private EditText diaryaddress;
-
+    private EditText email_text;
 
 
 
@@ -51,6 +51,7 @@ public class Diary extends AppCompatActivity  {
         diarycontent = (EditText) findViewById(R.id.diary_content);
         sendbutton = (Button)findViewById(R.id.diary_save_button);
         diaryaddress = (EditText) findViewById(R.id.diary_address);
+        email_text = findViewById(R.id.login_textid);
         btn_back = findViewById(R.id.btn_back);
   /////////////////////////////////////////////////////////////////
 
@@ -83,6 +84,7 @@ public class Diary extends AppCompatActivity  {
             public void onClick(View view) {
 
 
+
                 String getAddress = diaryaddress.getText().toString();
                 String getContent = diarycontent.getText().toString();
 
@@ -92,7 +94,7 @@ public class Diary extends AppCompatActivity  {
                 result.put("email", getContent);
 
 
-                writecontent("1", getAddress,getContent);
+                writecontent(email_text.getText().toString() + "1", getAddress,getContent);
 
             }
         });
@@ -144,6 +146,7 @@ public class Diary extends AppCompatActivity  {
     }
 
     private void readcontent(){
+
 
 
         mDatabase.child("users").child("1").addValueEventListener(new ValueEventListener() {
