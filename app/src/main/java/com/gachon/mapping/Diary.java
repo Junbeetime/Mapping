@@ -91,7 +91,7 @@ public class Diary extends AppCompatActivity  {
 
                 String getAddress = diaryaddress.getText().toString();
                 String getContent = diarycontent.getText().toString();
-                String uid = firebaseAuth.getUid();
+                String uid = user.getUid();
                 //hash맵
 
                 HashMap result = new HashMap<>();
@@ -100,7 +100,7 @@ public class Diary extends AppCompatActivity  {
                 result.put("content", getContent);
 
 
-                writecontent("1", getAddress,getContent);
+                writecontent(uid, getAddress,getContent);
 
             }
         });
@@ -152,8 +152,6 @@ public class Diary extends AppCompatActivity  {
     }
 
     private void readcontent(){
-
-
         mDatabase.child("users").child("1").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
