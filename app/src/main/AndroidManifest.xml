@@ -32,7 +32,7 @@
             android:name=".ShareDiaryTitle"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
+            android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".idActivity"
@@ -57,7 +57,7 @@
             android:name="com.google.android.gms.vision"
             android:value="@integer/google_play_services_version"/>
 
-        <activity android:name=".SignUpActivity"
+        <activity android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

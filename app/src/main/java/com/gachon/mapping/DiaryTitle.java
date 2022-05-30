@@ -34,6 +34,8 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
     private EditText et_item;
 
+   // public static Context context;
+
     private Button btn_add;
 
     private RecyclerView rv_click_apply;
@@ -124,6 +126,7 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
         }
         else if(view.getId() == R.id.btn_click_item)
         {
+            //context = this;
             Intent intent =new Intent(getApplicationContext(), Diary.class);
             intent.putExtra("title",et_item.getText().toString());
             startActivity(intent);
