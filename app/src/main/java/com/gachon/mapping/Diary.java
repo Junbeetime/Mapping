@@ -135,9 +135,9 @@ public class Diary extends AppCompatActivity  {
     // Data Base send //
     private void writecontent(String uid, String address, String content) {
         User user = new User(uid, address, content);
+        String name="정현기";
 
-
-        mDatabase.child("다이어리").child(uid).setValue(user)
+        mDatabase.child("다이어리").child(name).child(uid).setValue(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
