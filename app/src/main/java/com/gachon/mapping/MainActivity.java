@@ -32,6 +32,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -39,12 +40,15 @@ public class MainActivity extends AppCompatActivity {
     //로그캣 사용 설정
     private static final String TAG = "MainActivity";
     private ImageButton main_back_button;
+    private FirebaseAuth firebaseAuth;
     //객체 선언
     SupportMapFragment mapFragment;
     GoogleMap map;
     Button btnLocation, btnKor2Loc, btnMarker;
     EditText editText;
     Button diary_button,share_diary_button;
+
+
 
 
     MarkerOptions myMarker;
@@ -58,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
         //권한 설정
         checkDangerousPermissions();
-
         //객체 초기화
         editText = findViewById(R.id.editText);
         btnLocation = findViewById(R.id.confirm_myLocation);
@@ -125,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                 Location location = getLocationFromAddress(getApplicationContext(), editText.getText().toString());
 
                 MakeMarker(location);
+
             }
         });
         btnKor2Loc.setOnClickListener(new View.OnClickListener() {
@@ -147,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
         diary_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(getApplicationContext(),DiaryTitle.class);
                 startActivity(intent);
             }

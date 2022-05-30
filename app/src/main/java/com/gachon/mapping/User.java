@@ -61,7 +61,6 @@ public class User {
     @Override
     public String toString() {
         return "Diary{" +
-                "UID='" + uid + '\'' +
                 "Email='" + email + '\'' +
                 "address='" + address + '\'' +
                 ", content='" + content + '\'' +

@@ -3,7 +3,7 @@ package com.gachon.mapping;
 public class UserInfo {
     public String uid;
     public String email;
-
+    public String pwd;
 
 
     public UserInfo() {
@@ -22,22 +22,30 @@ public class UserInfo {
         return uid;
     }
 
+    public void setPwd(String Pwd){
+        this.pwd = Pwd;
+    }
+
+    public String getPwd(){
+        return pwd;
+    }
+
+
     public void setUid(String Uid){
         this.uid = Uid;
     }
 
-    public UserInfo(String Uid, String Email) {
-        this.uid = Uid;
+    public UserInfo(String Email ,String Pwd) {
         this.email = Email;
+        this.pwd = Pwd;
     }
-
 
 
     @Override
     public String toString() {
         return "UserInfo{" +
-                "UID='" + uid + '\'' +
                 ", EMAIL='" + email + '\'' +
+                ", Password='" + email + '\'' +
                 '}';
     }
 }

@@ -25,7 +25,7 @@ import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private EditText sign_email_text;
+    public EditText sign_email_text;
     private EditText sign_pwd_text;
     private EditText sign_name_text;
     private EditText sign_phone_text;
@@ -52,9 +52,8 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = sign_email_text.getText().toString().trim();
                 String pwd = sign_pwd_text.getText().toString().trim();
-                String age = sign_name_text.getText().toString().trim();
+                String name = sign_name_text.getText().toString().trim();
                 String phone = sign_phone_text.getText().toString().trim();
-                String uid = firebaseAuth.getUid();
                 // 공백 부분 제거 --> trim
 
                 firebaseAuth.createUserWithEmailAndPassword(email, pwd)
@@ -64,11 +63,10 @@ public class SignUpActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
 
                                     HashMap result = new HashMap<>();
-                                    result.put("uid",uid);
                                     result.put("email", email);
-
-
-                                    writecontent(uid, uid,email);
+                                    result.put("pwd",pwd);
+                                    result.put("name",name);
+                                    writecontent(email,pwd,name);
 
                                     Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                     startActivity(intent);
@@ -115,10 +113,10 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     ////////////////////////////////////////////////////////////////////////////
-    private void writecontent(String Uid, String uid, String email) {
-        UserInfo user = new UserInfo(uid, email);
+    private void writecontent(String email, String pwd,String name) {
+        UserInfo user = new UserInfo(email,pwd);
 
-        databaseReference.child("usersInfo").child(Uid).setValue(user)
+        databaseReference.child("유저정보").child(name).setValue(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

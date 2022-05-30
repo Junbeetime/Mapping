@@ -36,10 +36,10 @@ public class Diary extends AppCompatActivity  {
     private ImageButton btn_back;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference mDatabase = database.getReference();
+    private FirebaseAuth firebaseAuth;
     private Button sendbutton;
     private EditText diarycontent;
     private EditText diaryaddress;
-    private FirebaseAuth firebaseAuth; //mAuth
 
 
 
@@ -66,7 +66,10 @@ public class Diary extends AppCompatActivity  {
        });
   /////////////////////////////////////////////////////////////////
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        String test_uid = firebaseAuth.getUid();
+        System.out.print(test_uid + " 테스트 uid 다이어리 생성");
 
 
 
@@ -91,7 +94,8 @@ public class Diary extends AppCompatActivity  {
 
                 String getAddress = diaryaddress.getText().toString();
                 String getContent = diarycontent.getText().toString();
-                String uid = user.getUid();
+                String uid = firebaseAuth.getUid();
+                System.out.println(uid + "Diary 생성 후");
                 //hash맵
 
                 HashMap result = new HashMap<>();
@@ -133,7 +137,7 @@ public class Diary extends AppCompatActivity  {
         User user = new User(uid, address, content);
 
 
-        mDatabase.child("Diary").child(uid).setValue(user)
+        mDatabase.child("다이어리").child(uid).setValue(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -152,7 +156,7 @@ public class Diary extends AppCompatActivity  {
     }
 
     private void readcontent(){
-        mDatabase.child("users").child("1").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("다이어리").child("1").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.getValue(User.class) != null ){
