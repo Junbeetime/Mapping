@@ -24,6 +24,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,31 +47,34 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
     private Button btn_add, btn_load;
 
     private RecyclerView rv_click_apply;
-
+    private DatabaseReference mDatabase;
     private ClickApplyAdapter clickApplyAdapter;
 
     private List<String> itemNameList;
 
     private ImageButton btn_back;
 
-
-
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private FirebaseAuth firebaseAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        firebaseAuth = FirebaseAuth.getInstance();
 
         try
         {
             setContentView(R.layout.activity_diary_title);
 
             init();
-
+            load_btn_listener();
             setting();
 
             addListener();
+
+
         }
         catch(Exception ex)
         {
@@ -77,6 +88,8 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
     private void init()
     {
+        btn_load = findViewById(R.id.btn_load);
+
         activity = this;
 
         et_item = findViewById(R.id.et_item);
@@ -154,6 +167,24 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
 
     }
+
+    public void load_btn_listener(){
+
+        btn_load.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String uid = firebaseAuth.getUid();
+                mDatabase = FirebaseDatabase.getInstance().getReference();
+                Query lastQuery = mDatabase.child("다이어리").child(uid).orderByKey();
+
+                System.out.println(lastQuery + "테스트");
+
+            }
+        });
+
+    }
+
 
 
 
