@@ -53,16 +53,16 @@ public class Diary extends AppCompatActivity  {
         diaryaddress = (EditText) findViewById(R.id.diary_address);
         btn_back = findViewById(R.id.btn_back);
         sharebutton = (Button) findViewById(R.id.diary_share_button);
-  /////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////
 
 
-       btn_back.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-       });
-  /////////////////////////////////////////////////////////////////
+        });
+        /////////////////////////////////////////////////////////////////
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -82,8 +82,8 @@ public class Diary extends AppCompatActivity  {
                 startActivityForResult(intent,101);
             }
         });
-    ///////////////////////////////////////////////////////////////////////
-    //Data base save button event//
+        ///////////////////////////////////////////////////////////////////////
+        //Data base save button event//
 
 
         sharebutton.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +128,7 @@ public class Diary extends AppCompatActivity  {
             }
         });
 
-    ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
 //        데이터베이스 oncreate//
 
         readcontent();

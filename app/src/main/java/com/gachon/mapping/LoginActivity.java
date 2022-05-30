@@ -3,6 +3,7 @@ package com.gachon.mapping;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -25,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     public static EditText email_text;
     private EditText pwd_text;
     private FirebaseAuth firebaseAuth;
+
+
 
 
 
@@ -115,6 +119,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
 

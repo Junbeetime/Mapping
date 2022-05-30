@@ -46,6 +46,8 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
     private ImageButton btn_back;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -144,7 +146,12 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
             finish();
         }
 
+
+
+
     }
+
+
 
 
 }
