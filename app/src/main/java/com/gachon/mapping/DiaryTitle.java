@@ -36,7 +36,7 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
    // public static Context context;
 
-    private Button btn_add;
+    private Button btn_add, btn_load;
 
     private RecyclerView rv_click_apply;
 
@@ -45,6 +45,8 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
     private List<String> itemNameList;
 
     private ImageButton btn_back;
+
+
 
 
 
@@ -80,6 +82,8 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
         et_item = findViewById(R.id.et_item);
 
         btn_add = findViewById(R.id.btn_add);
+
+        btn_load = findViewById(R.id.btn_load);
 
         btn_back = findViewById(R.id.btn_back);
 
