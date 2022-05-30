@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleMap map;
     Button btnLocation, btnKor2Loc, btnMarker;
     EditText editText;
-    Button diary_button;
+    Button diary_button,share_diary_button;
 
 
     MarkerOptions myMarker;
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         btnMarker = findViewById(R.id.map_marking_button);
         diary_button = findViewById(R.id.diary_button);
         main_back_button = findViewById(R.id.main_back_button);
+        share_diary_button = findViewById(R.id.share_diary_button);
 
 
 
@@ -73,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),DiaryTitle.class);
+                startActivityForResult(intent,200);
+            }
+        });
+        share_diary_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),ShareDiaryTitle.class);
                 startActivityForResult(intent,200);
             }
         });
@@ -143,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     private void MakeMarker(Location location){

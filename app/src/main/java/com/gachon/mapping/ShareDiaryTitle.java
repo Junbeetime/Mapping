@@ -1,121 +1,140 @@
 package com.gachon.mapping;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ShareDiaryTitle extends AppCompatActivity {
-
+public class ShareDiaryTitle extends AppCompatActivity implements View.OnClickListener
+{
     private Activity activity;
 
     private EditText et_item;
 
-    private Button btn_add, btn_delete;
+    private Button btn_serach;
 
-    private ListView lv_array;
+    private RecyclerView rv_click_apply;
 
-    private ArrayAdapter<String> arrayAdapter;
+    private ShareClickApplyAdapter clickApplyAdapter;
 
-    private List<String> itemList = new ArrayList<>(Arrays.asList());
+    private List<String> itemNameList;
 
     private ImageButton btn_back;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_share_diary);
 
-        try {
-            setContentView(R.layout.activity_share_diary);
+        try
+        {
+            setContentView(R.layout.activity_share_diary_title);
 
             init();
 
             setting();
 
-            addListner();
-
-        }catch (Exception ex) {
+            addListener();
+        }
+        catch(Exception ex)
+        {
             LogService.error(this, ex.getMessage(), ex);
         }
 
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
 
 
     }
-    private void init(){
+
+
+    private void init()
+    {
         activity = this;
 
         et_item = findViewById(R.id.et_item);
 
-        btn_add = findViewById(R.id.btn_add);
+        btn_serach = findViewById(R.id.btn_search);
 
+        btn_back = findViewById(R.id.btn_back);
 
-        lv_array = findViewById(R.id.lv_array);
+        rv_click_apply = findViewById(R.id.rv_click_apply);
 
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.diary_title_item, itemList);
+        itemNameList = new ArrayList<>();
+
+        clickApplyAdapter = new ShareClickApplyAdapter(activity, itemNameList, this, this);
     }
 
-    private void setting(){
+    private void setting()
+    {
+        rv_click_apply.setAdapter(clickApplyAdapter);
 
-        lv_array.setAdapter(arrayAdapter);
-        lv_array.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        // 리니어 레이아웃 매니저로 수직으로 배치 설정
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        rv_click_apply.setLayoutManager(linearLayoutManager);
     }
 
-    private void addListner(){
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                itemList.add(et_item.getText().toString());
-                arrayAdapter.notifyDataSetChanged();
-            }
-        });
+    private void addListener()
+    {
 
-        btn_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                int index = lv_array.getCheckedItemPosition();
-
-                if(index < 0){
-                    Toast.makeText(activity, "삭제 대상을 선택하세요.", Toast.LENGTH_SHORT).show();;
-                }
-                else{
-                    itemList.remove(index);
-                    lv_array.clearChoices();
-                    et_item.setText("");
-                    arrayAdapter.notifyDataSetChanged();
-                }
-            }
-        });
-
-        lv_array.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(activity,"일기장",Toast.LENGTH_SHORT).show();
-            }
-        });
+        btn_serach.setOnClickListener(this);
+        btn_back.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View view)
+    {
+        if(view.getId() == R.id.btn_search)
+        {
+            String item = et_item.getText().toString();
 
+            if(item.isEmpty())
+            {
+                Toast.makeText(activity, "제목을 써주세요", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                itemNameList.add(item);
+
+                clickApplyAdapter.notifyDataSetChanged();
+            }
+        }
+        else if(view.getId() == R.id.btn_look_item)
+        {
+            Intent intent =new Intent(getApplicationContext(), Diary.class);
+            intent.putExtra("title",et_item.getText().toString());
+            startActivity(intent);
+        }
+
+        else if (view.getId() == R.id.btn_back){
+            finish();
+        }
+
+    }
 
 
 }
+

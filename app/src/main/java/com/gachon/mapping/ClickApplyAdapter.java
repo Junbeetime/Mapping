@@ -47,6 +47,8 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
 
         private Button btn_delete_item;
 
+        private Button btn_look_item;
+
         public ClickApplyHolder(@NonNull View itemView)
         {
             super(itemView);
@@ -56,6 +58,8 @@ public class ClickApplyAdapter extends RecyclerView.Adapter<ClickApplyAdapter.Cl
             btn_click_item = itemView.findViewById(R.id.btn_click_item);
 
             btn_delete_item = itemView.findViewById(R.id.btn_delete_item);
+
+            btn_look_item = itemView.findViewById(R.id.btn_look_item);
 
 
         }
