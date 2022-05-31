@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -68,7 +69,7 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
             init();
             setting();
-            load_btn_listener(et_item);
+            load_btn_listener();
             addListener();
 
 
@@ -165,7 +166,7 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    public void load_btn_listener(EditText title){
+    public void load_btn_listener(){
 
         btn_load.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,7 +180,10 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
                             Log.e("firebase", "Error getting data", task.getException());
                         }else{
                             //System.out.println(task.getResult().getValue() + "테스트11");
-                            System.out.println("\n"+ task.getResult().child(title.getText().toString()).getValue() + "테스트");
+                            System.out.println("\n"+ task.getResult() + "테스트");
+
+                            itemNameList.add(task.getResult().getValue().toString());
+                            clickApplyAdapter.notifyDataSetChanged();
                         }
                     }
                 });
