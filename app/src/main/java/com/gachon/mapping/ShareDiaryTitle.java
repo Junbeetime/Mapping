@@ -47,10 +47,10 @@ public class ShareDiaryTitle extends AppCompatActivity implements View.OnClickLi
     private EditText et_item;
 
 
-    private Button btn_add, btn_load;
-    private RecyclerView rv_click_apply;
+    private Button btn_load;
+    private RecyclerView share_rv_click_apply;
     private DatabaseReference mDatabase;
-    private ClickApplyAdapter clickApplyAdapter;
+    private ShareClickApplyAdapter shareclickApplyAdapter;
     private List<String> itemNameList;
     private ImageButton btn_back;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -95,22 +95,22 @@ public class ShareDiaryTitle extends AppCompatActivity implements View.OnClickLi
 
         btn_back = findViewById(R.id.btn_back);
 
-        rv_click_apply = findViewById(R.id.rv_click_apply);
+        share_rv_click_apply = findViewById(R.id.share_rv_click_apply);
 
         itemNameList = new ArrayList<>();
 
-        clickApplyAdapter = new ClickApplyAdapter(activity, itemNameList, this, this);
+        shareclickApplyAdapter = new ShareClickApplyAdapter(activity, itemNameList, this, this);
     }
 
     private void setting()
     {
-        rv_click_apply.setAdapter(clickApplyAdapter);
+        share_rv_click_apply.setAdapter(shareclickApplyAdapter);
 
         // 리니어 레이아웃 매니저로 수직으로 배치 설정
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        rv_click_apply.setLayoutManager(linearLayoutManager);
+        share_rv_click_apply.setLayoutManager(linearLayoutManager);
     }
 
     private void addListener()
@@ -129,7 +129,7 @@ public class ShareDiaryTitle extends AppCompatActivity implements View.OnClickLi
             String title = itemNameList.get(position).toString();
             System.out.println(title);
             //context = this;
-            Intent intent =new Intent(getApplicationContext(), Diary.class);
+            Intent intent =new Intent(getApplicationContext(), ShareDiary.class);
             intent.putExtra("title",title);
             startActivity(intent);
         }
@@ -175,7 +175,7 @@ public class ShareDiaryTitle extends AppCompatActivity implements View.OnClickLi
                                     trash2 = trash.indexOf(",");
                                     trash = trash.substring(0,trash2);
                                     itemNameList.add(trash);
-                                    clickApplyAdapter.notifyDataSetChanged();
+                                    shareclickApplyAdapter.notifyDataSetChanged();
                                 }
                             }while(Value.indexOf("title=") != -1);
 

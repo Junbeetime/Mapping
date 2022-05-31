@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ShareClickApplyAdapter extends RecyclerView.Adapter<ShareClickApplyAdapter.ClickApplyHolder>
+public class ShareClickApplyAdapter extends RecyclerView.Adapter<ShareClickApplyAdapter.ShareClickApplyHolder>
 {
     private Activity activity;
 
@@ -37,13 +37,13 @@ public class ShareClickApplyAdapter extends RecyclerView.Adapter<ShareClickApply
 
 
 
-    public class ClickApplyHolder extends RecyclerView.ViewHolder
+    public class ShareClickApplyHolder extends RecyclerView.ViewHolder
     {
         private TextView ck_click_title;
 
         private Button btn_look_item;
 
-        public ClickApplyHolder(@NonNull View itemView)
+        public ShareClickApplyHolder(@NonNull View itemView)
         {
             super(itemView);
 
@@ -58,17 +58,17 @@ public class ShareClickApplyAdapter extends RecyclerView.Adapter<ShareClickApply
 
     @NonNull
     @Override
-    public ShareClickApplyAdapter.ClickApplyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    public ShareClickApplyAdapter.ShareClickApplyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         LayoutInflater layoutInflater = LayoutInflater.from(activity);
 
         View itemView = layoutInflater.inflate(R.layout.sharediary_title_item, parent, false);
 
-        return new ClickApplyHolder(itemView);
+        return new ShareClickApplyHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ShareClickApplyAdapter.ClickApplyHolder holder, int position)
+    public void onBindViewHolder(@NonNull ShareClickApplyAdapter.ShareClickApplyHolder holder, int position)
     {
         String itemName = itemNameList.get(position);
 

@@ -38,7 +38,6 @@ public class ShareDiary extends AppCompatActivity  {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference mDatabase = database.getReference();
     private FirebaseAuth firebaseAuth;
-    private Button sendbutton;
     private TextView diarycontent;
     private TextView diaryaddress;
 
