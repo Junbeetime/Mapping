@@ -198,7 +198,7 @@ public class Diary extends AppCompatActivity  {
     private void Sharecontent(String uid, String address, String content, String title) {
         User user = new User(uid, address, content,title);
 
-        mDatabase.child("공유다이어리").child(uid).child(title).setValue(user)
+        mDatabase.child("공유다이어리").child(title).setValue(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

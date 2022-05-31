@@ -47,15 +47,13 @@ public class ShareDiary extends AppCompatActivity  {
         setContentView(R.layout.activtiy_share_diary);
 
 
-        ImageButton main;
+  //      ImageButton main;
         diarycontent = (TextView) findViewById(R.id.diary_share_content);
         diaryaddress = (TextView) findViewById(R.id.diary_share_address);
         btn_back = findViewById(R.id.btn_back);
 
 
-        /////////////////////////////////////////////////////////////////
-
-        readcontent();
+         readcontent();
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +67,7 @@ public class ShareDiary extends AppCompatActivity  {
 
 
         diary_address = findViewById(R.id.diary_address);
-        main = findViewById(R.id.diary_marking);
+/*        main = findViewById(R.id.diary_marking);
         main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,7 +75,7 @@ public class ShareDiary extends AppCompatActivity  {
                 intent.putExtra("address",diary_address.getText().toString());
                 startActivityForResult(intent,101);
             }
-        });
+        });*/
 
 
     }
@@ -97,32 +95,10 @@ public class ShareDiary extends AppCompatActivity  {
     }
 
     //////////////////////////////////////////////////////////////////////
-    // Data Base send //
-    private void writecontent(String uid, String address, String content, String title) {
-        User user = new User(uid, address, content,title);
-
-        mDatabase.child("다이어리").child(uid).child(title).setValue(user)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        // 성공적으로 저장했습니다.
-                        Toast.makeText(ShareDiary.this, "저장 완료!", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        //실패..
-                        Toast.makeText(ShareDiary.this, "실패...", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-    }
-
     private void readcontent(){
         String uid = FirebaseAuth.getInstance().getUid();
         String title = getIntent().getStringExtra("title");
-        mDatabase.child("다이어리").child(uid).child(title).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("공유다이어리").child(uid).child(title).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.getValue(User.class) != null ){
