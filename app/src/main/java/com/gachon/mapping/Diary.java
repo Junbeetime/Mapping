@@ -53,8 +53,10 @@ public class Diary extends AppCompatActivity  {
         diaryaddress = (EditText) findViewById(R.id.diary_address);
         btn_back = findViewById(R.id.btn_back);
         sharebutton = (Button) findViewById(R.id.diary_share_button);
+
         /////////////////////////////////////////////////////////////////
 
+        readcontent();
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,14 +121,14 @@ public class Diary extends AppCompatActivity  {
 
 
                 writecontent(uid, getAddress,getContent,title);
-
+                readcontent();
             }
         });
 
         ////////////////////////////////////////////////////////////////////////
 //        데이터베이스 oncreate//
 
-        readcontent();
+
 
 
     }
@@ -169,11 +171,16 @@ public class Diary extends AppCompatActivity  {
     }
 
     private void readcontent(){
-        mDatabase.child("다이어리").child("1").addValueEventListener(new ValueEventListener() {
+        String uid = FirebaseAuth.getInstance().getUid();
+        String title = getIntent().getStringExtra("title");
+        mDatabase.child("다이어리").child(uid).child(title).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.getValue(User.class) != null ){
                     User post = snapshot.getValue(User.class);
+                    System.out.println(post.getAddress().toString()+"테스트");
+                    diary_address.setText(post.getAddress().toString());
+                    diarycontent.setText(post.getContent().toString());
                 }else{
                     Toast.makeText(Diary.this,"데이터없음..",Toast.LENGTH_SHORT).show();
                 }
