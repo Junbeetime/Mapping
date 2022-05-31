@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF1E2"
+    android:orientation="vertical"
+    tools:context="com.gachon.mapping.Diary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/layout_back"/>
+        <include layout="@layout/layout_menu"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/btn_title"
+        android:layout_width="150dp"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:text="공유 일기장 보기"
+        android:textColor="#5D5D5D"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="87dp" />
+
+    <TextView
+        android:id="@+id/diary_share_address"
+        android:layout_width="300dp"
+        android:layout_height="51dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:gravity="center"
+        android:text="공유다이어리 주소"
+        android:lines="10"
+        android:maxLines="10"
+        android:textColor="#5D5D5D"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/diary_share_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="374dp"
+        android:layout_below="@id/diary_share_address"
+        android:layout_marginTop="-62dp"
+        android:paddingStart="30dp"
+        android:paddingTop="0dp"
+        android:paddingEnd="30dp"
+        android:paddingBottom="50dp"
+        android:src="@drawable/sharediary" />
+
+    <TextView
+        android:id="@+id/diary_share_content"
+        android:layout_width="380dp"
+        android:layout_height="169dp"
+        android:layout_below="@id/diary_imageview"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="-112dp"
+        android:layout_marginBottom="207dp"
+        android:fontFamily="@font/sanghu_dajungdagam"
+        android:gravity="center"
+        android:lines="10"
+        android:maxLines="10"
+        android:text="공유다이어리"
+        android:textColor="#5D5D5D" />
+
+    <ImageButton
+        android:id="@+id/diary_share_marking"
+        android:layout_width="50dp"
+        android:layout_height="42dp"
+        android:layout_above="@id/diary_share_imageview"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_location_on_24" />
+
+
+</RelativeLayout>

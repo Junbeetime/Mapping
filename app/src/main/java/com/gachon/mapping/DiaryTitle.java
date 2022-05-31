@@ -153,16 +153,13 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
         else if(view.getId() == R.id.btn_delete_item){
             int position = (int) view.getTag();
-
             itemNameList.remove(position);
-
             clickApplyAdapter.notifyDataSetChanged();
 
         }
         else if (view.getId() == R.id.btn_back){
             finish();
         }
-
 
 
 
@@ -201,6 +198,7 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
                                     trash2 = trash.indexOf(",");
                                     trash = trash.substring(0,trash2);
                                     itemNameList.add(trash);
+                                    Intent intent =new Intent(getApplicationContext(), Diary.class);
                                     clickApplyAdapter.notifyDataSetChanged();
                                 }
                             }while(Value.indexOf("title=") != -1);
