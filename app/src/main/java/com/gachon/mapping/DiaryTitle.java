@@ -63,15 +63,14 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         firebaseAuth = FirebaseAuth.getInstance();
 
+
         try
         {
             setContentView(R.layout.activity_diary_title);
-
             init();
             setting();
             load_btn_listener();
             addListener();
-
 
         }
         catch(Exception ex)
@@ -180,10 +179,32 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
                             Log.e("firebase", "Error getting data", task.getException());
                         }else{
                             //System.out.println(task.getResult().getValue() + "테스트11");
-                            System.out.println("\n"+ task.getResult() + "테스트");
+                            int start;
+                            int end;
+                            int trash2;
+                            String Value = task.getResult().getValue().toString();
+                            do {
 
-                            itemNameList.add(task.getResult().getValue().toString());
-                            clickApplyAdapter.notifyDataSetChanged();
+                                int titleNum = Value.indexOf("title=");
+
+                                if (titleNum != -1) {
+                                    Value = Value.substring(titleNum);
+                                    start = Value.indexOf("=") + 1;
+                                    end = Value.indexOf(",");
+                                    Value = Value.substring(start);
+                                    String trash;
+                                    trash = Value.substring(0, end);
+                                    System.out.println("\n" + trash + "테스트");
+                                    trash2 = trash.indexOf(",");
+                                    trash = trash.substring(0,trash2);
+                                    itemNameList.add(trash);
+                                    clickApplyAdapter.notifyDataSetChanged();
+                                }
+                            }while(Value.indexOf("title=") != -1);
+
+
+
+
                         }
                     }
                 });
@@ -193,6 +214,9 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
         });
 
     }
+
+
+
 
 
 
