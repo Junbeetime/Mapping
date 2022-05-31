@@ -142,9 +142,12 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
         }
         else if(view.getId() == R.id.btn_click_item)
         {
+            int position = (int) view.getTag();
+            String title = itemNameList.get(position).toString();
+            System.out.println(title);
             //context = this;
             Intent intent =new Intent(getApplicationContext(), Diary.class);
-            intent.putExtra("title",et_item.getText().toString());
+            intent.putExtra("title",title);
             startActivity(intent);
         }
 
