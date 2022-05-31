@@ -180,9 +180,18 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
                             Log.e("firebase", "Error getting data", task.getException());
                         }else{
                             //System.out.println(task.getResult().getValue() + "테스트11");
-                            System.out.println("\n"+ task.getResult() + "테스트");
+                            int start;
+                            int end;
+                            String Value = task.getResult().getValue().toString();
+                            int titleNum = Value.indexOf("title=");
+                            Value = Value.substring(titleNum);
+                            start = Value.indexOf("=")+1;
+                            end = Value.indexOf(",");
+                            Value = Value.substring(start,end);
 
-                            itemNameList.add(task.getResult().getValue().toString());
+                            System.out.println("\n"+ Value + "테스트");
+
+                            itemNameList.add(Value);
                             clickApplyAdapter.notifyDataSetChanged();
                         }
                     }
