@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,18 +45,13 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
     private EditText et_item;
 
-   // public static Context context;
 
     private Button btn_add, btn_load;
-
     private RecyclerView rv_click_apply;
     private DatabaseReference mDatabase;
     private ClickApplyAdapter clickApplyAdapter;
-
     private List<String> itemNameList;
-
     private ImageButton btn_back;
-
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseAuth firebaseAuth;
 
@@ -69,9 +67,8 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
             setContentView(R.layout.activity_diary_title);
 
             init();
-            load_btn_listener();
             setting();
-
+            load_btn_listener(et_item);
             addListener();
 
 
@@ -168,17 +165,25 @@ public class DiaryTitle extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    public void load_btn_listener(){
+    public void load_btn_listener(EditText title){
 
         btn_load.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String uid = firebaseAuth.getUid();
                 mDatabase = FirebaseDatabase.getInstance().getReference();
-                Query lastQuery = mDatabase.child("다이어리").child(uid).orderByKey();
+                mDatabase.child("다이어리").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if(!task.isSuccessful()){
+                            Log.e("firebase", "Error getting data", task.getException());
+                        }else{
+                            //System.out.println(task.getResult().getValue() + "테스트11");
+                            System.out.println("\n"+ task.getResult().child(title.getText().toString()).getValue() + "테스트");
+                        }
+                    }
+                });
 
-                System.out.println(lastQuery + "테스트");
 
             }
         });

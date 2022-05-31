@@ -7,11 +7,18 @@ public class User {
     public String address;
     public String content;
     public String email;
-
+    public String title;
 
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
+    }
+    public String getTitle(){
+        return title;
+    }
+
+    public void setTitle(String Title){
+        this.title = Title;
     }
 
     public String getEmail(){
@@ -30,10 +37,11 @@ public class User {
         this.uid = Uid;
     }
 
-    public User(String Uid ,String Address, String Content) {
+    public User(String Uid ,String Address, String Content, String Title) {
         this.uid = Uid;
         this.address = Address;
         this.content = Content;
+        this.title = Title;
     }
 
 
@@ -63,7 +71,8 @@ public class User {
         return "Diary{" +
                 "Email='" + email + '\'' +
                 "address='" + address + '\'' +
-                ", content='" + content + '\'' +
+                "content='" + content + '\'' +
+                "title='" + title + '\'' +
                 '}';
     }
 }

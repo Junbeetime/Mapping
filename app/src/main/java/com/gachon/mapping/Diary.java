@@ -66,11 +66,6 @@ public class Diary extends AppCompatActivity  {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        String test_uid = firebaseAuth.getUid();
-        System.out.print(test_uid + " 테스트 uid 다이어리 생성");
-
-
-
 
         diary_address = findViewById(R.id.diary_address);
         main = findViewById(R.id.diary_marking);
@@ -153,7 +148,7 @@ public class Diary extends AppCompatActivity  {
     //////////////////////////////////////////////////////////////////////
     // Data Base send //
     private void writecontent(String uid, String address, String content, String title) {
-        User user = new User(uid, address, content);
+        User user = new User(uid, address, content,title);
 
         mDatabase.child("다이어리").child(uid).child(title).setValue(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -194,7 +189,7 @@ public class Diary extends AppCompatActivity  {
 
     // Data Base send //
     private void Sharecontent(String uid, String address, String content, String title) {
-        User user = new User(uid, address, content);
+        User user = new User(uid, address, content,title);
 
         mDatabase.child("공유다이어리").child(uid).child(title).setValue(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
