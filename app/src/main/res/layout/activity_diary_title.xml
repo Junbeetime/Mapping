@@ -67,7 +67,7 @@
             android:layout_weight="3"
             android:background="@drawable/solid_button"
             android:fontFamily="@font/sangju_haerye"
-            android:text="일기장 만들기"
+            android:text="만들기"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginRight="5dp"/>
@@ -79,7 +79,7 @@
             android:layout_weight="3"
             android:background="@drawable/solid_button"
             android:fontFamily="@font/sangju_haerye"
-            android:text="일기장 불러오기"
+            android:text="불러오기"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginRight="5dp"/>

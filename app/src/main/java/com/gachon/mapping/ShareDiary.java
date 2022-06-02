@@ -98,7 +98,7 @@ public class ShareDiary extends AppCompatActivity  {
     private void readcontent(){
         String uid = FirebaseAuth.getInstance().getUid();
         String title = getIntent().getStringExtra("title");
-        mDatabase.child("공유다이어리").child(uid).child(title).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("공유다이어리").child(title).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.getValue(User.class) != null ){
